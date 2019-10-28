@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+
 import 'package:jdih_app/search.dart';
 
-void main() => runApp(Homepage());
+import 'package:flutter/services.dart';
+
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(Homepage());
+  });
+}
 
 class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Home',
       theme: ThemeData(
         primarySwatch: Colors.blue,

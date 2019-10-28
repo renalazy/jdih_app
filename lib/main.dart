@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-
 import 'package:jdih_app/home.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(SplashApp());
+   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(SplashApp());
+  });
 }
 
 class SplashApp extends StatelessWidget {
