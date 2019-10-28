@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jdih_app/search.dart';
 
 void main() => runApp(Homepage());
 
@@ -30,22 +31,38 @@ class _MyHomePageState extends State<MyHomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
-      'Index 0: Home',
+      'Index 0: Terkini',
       style: optionStyle,
     ),
     Text(
-      'Index 1: PUU',
+      'Index 1: Tematik',
       style: optionStyle,
     ),
     Text(
-      'Index 2: Search',
+      'Index 2: Pencarian',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Bookmark',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 4: Bantuan',
       style: optionStyle,
     ),
   ];
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      switch (index) {
+        case 2:
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SearchPage(),
+              ));
+          break;
+      }
     });
   }
 
@@ -57,25 +74,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.library_books),
-            title: Text('PUU'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            title: Text('Search'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue[800],
-        onTap: _onItemTapped,
       ),
       drawer: Drawer(
         child: ListView(
@@ -89,45 +87,69 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               title: Text(
-                'Home',
+                'Terkini',
               ),
-              trailing: Icon(Icons.home),
+              leading: Icon(Icons.home),
               onTap: () {
-                _onItemTapped(0);
                 Navigator.pop(context);
+                _onItemTapped(0);
               },
             ),
             ListTile(
               title: Text(
-                'PUU',
+                'Tematik',
               ),
-              trailing: Icon(Icons.library_books),
+              leading: Icon(Icons.library_books),
               onTap: () {
                 _onItemTapped(1);
-                Navigator.pop(context);
               },
             ),
             ListTile(
               title: Text(
-                'Search',
+                'Pencarian',
               ),
-              trailing: Icon(Icons.search),
+              leading: Icon(Icons.search),
               onTap: () {
                 _onItemTapped(2);
-                Navigator.pop(context);
               },
             ),
             ListTile(
               title: Text(
-                'About',
+                'Bookmark',
               ),
-              trailing: Icon(Icons.face),
+              leading: Icon(Icons.bookmark),
               onTap: () {
-                Navigator.pop(context);
+                _onItemTapped(3);
+              },
+            ),
+            ListTile(
+              title: Text('Bantuan'),
+              leading: Icon(Icons.question_answer),
+              onTap: () {
+                _onItemTapped(4);
               },
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Terkini'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            title: Text('Tematik'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            title: Text('Pencarian'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue.shade800,
+        onTap: _onItemTapped,
       ),
     );
   }
