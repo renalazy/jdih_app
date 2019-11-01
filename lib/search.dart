@@ -14,39 +14,39 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  final _formKey = GlobalKey<FormState>();
+  // final _formKey = GlobalKey<FormState>();
 
-  List<String> _bentuk = ['A', 'B', 'C'];
+  // List<String> _bentuk = ['A', 'B', 'C'];
 
-  int _selectedIndex = 2;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: PUU',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Search',
-      style: optionStyle,
-    ),
-  ];
+  // int _selectedIndex = 2;
+  // static const TextStyle optionStyle =
+  //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  // static const List<Widget> _widgetOptions = <Widget>[
+  //   Text(
+  //     'Index 0: Home',
+  //     style: optionStyle,
+  //   ),
+  //   Text(
+  //     'Index 1: PUU',
+  //     style: optionStyle,
+  //   ),
+  //   Text(
+  //     'Index 2: Search',
+  //     style: optionStyle,
+  //   ),
+  // ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      switch (index) {
-        case 0:
-          Navigator.pop(context);
-          break;
-        case 2:
-          break;
-      }
-    });
-  }
+  // void _onItemTapped(int index) {
+  //   setState(() {
+  //     switch (index) {
+  //       case 0:
+  //         Navigator.pop(context);
+  //         break;
+  //       case 2:
+  //         break;
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -95,82 +95,82 @@ class _SearchPageState extends State<SearchPage> {
           ],
         ),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Image.asset('images/jdih_logo.png'),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-            ),
-            ListTile(
-              title: Text(
-                'Terkini',
-              ),
-              leading: Icon(Icons.home),
-              onTap: () {
-                Navigator.pop(context);
-                _onItemTapped(0);
-              },
-            ),
-            ListTile(
-              title: Text(
-                'Tematik',
-              ),
-              leading: Icon(Icons.library_books),
-              onTap: () {
-                _onItemTapped(1);
-              },
-            ),
-            ListTile(
-              title: Text(
-                'Pencarian',
-              ),
-              leading: Icon(Icons.search),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text(
-                'Bookmark',
-              ),
-              leading: Icon(Icons.bookmark),
-              onTap: () {
-                _onItemTapped(3);
-              },
-            ),
-            ListTile(
-              title: Text('Bantuan'),
-              leading: Icon(Icons.question_answer),
-              onTap: () {
-                _onItemTapped(4);
-              },
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Terkini'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.library_books),
-            title: Text('Tematik'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            title: Text('Pencarian'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue.shade800,
-        onTap: _onItemTapped,
-      ),
+      // drawer: Drawer(
+      //   child: ListView(
+      //     padding: EdgeInsets.zero,
+      //     children: <Widget>[
+      //       DrawerHeader(
+      //         child: Image.asset('images/jdih_logo.png'),
+      //         decoration: BoxDecoration(
+      //           color: Colors.blue,
+      //         ),
+      //       ),
+      //       ListTile(
+      //         title: Text(
+      //           'Terkini',
+      //         ),
+      //         leading: Icon(Icons.home),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //           _onItemTapped(0);
+      //         },
+      //       ),
+      //       ListTile(
+      //         title: Text(
+      //           'Tematik',
+      //         ),
+      //         leading: Icon(Icons.library_books),
+      //         onTap: () {
+      //           _onItemTapped(1);
+      //         },
+      //       ),
+      //       ListTile(
+      //         title: Text(
+      //           'Pencarian',
+      //         ),
+      //         leading: Icon(Icons.search),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //       ListTile(
+      //         title: Text(
+      //           'Bookmark',
+      //         ),
+      //         leading: Icon(Icons.bookmark),
+      //         onTap: () {
+      //           _onItemTapped(3);
+      //         },
+      //       ),
+      //       ListTile(
+      //         title: Text('Bantuan'),
+      //         leading: Icon(Icons.question_answer),
+      //         onTap: () {
+      //           _onItemTapped(4);
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home),
+      //       title: Text('Terkini'),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.library_books),
+      //       title: Text('Tematik'),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.search),
+      //       title: Text('Pencarian'),
+      //     ),
+      //   ],
+      //   currentIndex: _selectedIndex,
+      //   selectedItemColor: Colors.blue.shade800,
+      //   onTap: _onItemTapped,
+      // ),
     );
   }
 }
