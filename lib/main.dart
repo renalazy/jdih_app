@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jdih_app/boarding.dart';
 import 'dart:async';
 import 'package:jdih_app/home.dart';
 import 'package:flutter/services.dart';
@@ -16,7 +17,7 @@ class SplashApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        '/home': (BuildContext context) => Homepage(),
+        '/boarding': (BuildContext context) => BoardingPage(),
       },
       home: SplashScreen(),
     );
@@ -36,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Navigator.of(context).pushReplacementNamed("/home");
+    Navigator.of(context).pushReplacementNamed("/boarding");
   }
 
   @override
