@@ -115,6 +115,9 @@ class _BoardingPageState extends State<BoardingPage> {
                   ],
                 ),
                 SizedBox(height: 10.0),
+                Container(
+                    height: 0.5, width: 350.0, color: Colors.grey.shade400),
+                SizedBox(height: 10.0),
                 Text(
                   'jika anda telah terdaftar silahkan login',
                   style: TextStyle(fontSize: 12.0, color: Colors.grey.shade400),
