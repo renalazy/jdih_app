@@ -4,7 +4,7 @@ import 'package:jdih_app/home.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(SplashApp());
   });
@@ -48,13 +48,32 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.white,
       body: Center(
-        child: Image.asset(
-          'images/jdih_logo.png',
-          height: 300,
-          width: 300,
-          fit: BoxFit.fill,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              'images/jdih-logo-mentah.png',
+              height: 300,
+              width: 300,
+              fit: BoxFit.fill,
+            ),
+            Text(
+              'JDIH Kabupaten',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 31.0,
+              ),
+            ),
+            Text(
+              'Probolinggo',
+              style: TextStyle(
+                fontSize: 31.0,
+                color: Colors.grey,
+              ),
+            )
+          ],
         ),
       ),
     );
