@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -73,16 +74,23 @@ class _BoardingPageState extends State<BoardingPage> {
                         color: Colors.grey.shade400,
                       ),
                     ),
-                    RaisedButton(
-                      onPressed: null,
-                      child: Text(
-                        'registrasi',
-                        style: TextStyle(fontSize: 18.0, color: Colors.white),
+                    SizedBox(height: 10.0),
+                    Container(
+                      height: 35.0,
+                      width: 140.0,
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.white),
+                        borderRadius: BorderRadius.circular(50.0),
                       ),
-                      color: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(50.0))),
+                      child: Center(
+                        child: Text(
+                          'Registrasi',
+                          style: TextStyle(
+                            fontSize: 19.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -90,31 +98,60 @@ class _BoardingPageState extends State<BoardingPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    RaisedButton(
-                      onPressed: null,
-                      child: Text(
-                        'Google',
-                        style: TextStyle(fontSize: 18.0, color: Colors.white),
+                    Container(
+                      height: 55.0,
+                      width: 175.0,
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.white),
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: Colors.white,
                       ),
-                      color: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(50.0))),
+                      child: ListTile(
+                        leading: Image(
+                          image: AssetImage('images/facebook-logo.png'),
+                          width: 40.0,
+                          height: 40.0,
+                        ),
+                        title: Text(
+                          'Facebook',
+                          style: TextStyle(
+                            fontSize: 19.0,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF707070),
+                          ),
+                        ),
+                      ),
                     ),
-                    RaisedButton(
-                      onPressed: null,
-                      child: Text(
-                        'Facebook',
-                        style: TextStyle(fontSize: 18.0, color: Colors.white),
+                    SizedBox(width: 10.0),
+                    Container(
+                      height: 55.0,
+                      width: 175.0,
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.white),
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: Colors.white,
                       ),
-                      color: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(50.0))),
+                      child: Center(
+                        child: ListTile(
+                          leading: Image(
+                            image: AssetImage('images/google-logo.png'),
+                            width: 30.0,
+                            height: 30.0,
+                          ),
+                          title: Text(
+                            'Google',
+                            style: TextStyle(
+                              fontSize: 19.0,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF707070),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: 20.0),
                 Container(
                     height: 0.5, width: 350.0, color: Colors.grey.shade400),
                 SizedBox(height: 10.0),
@@ -122,16 +159,23 @@ class _BoardingPageState extends State<BoardingPage> {
                   'jika anda telah terdaftar silahkan login',
                   style: TextStyle(fontSize: 12.0, color: Colors.grey.shade400),
                 ),
-                SizedBox(height: 10.0),
-                RaisedButton(
-                  onPressed: null,
-                  child: Text(
-                    'Login',
-                    style: TextStyle(fontSize: 18.0, color: Color(0xFF03A696)),
+                SizedBox(height: 20.0),
+                Container(
+                  height: 35.0,
+                  width: 140.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Color(0xFF03A696)),
+                    borderRadius: BorderRadius.circular(50.0),
                   ),
-                  color: Colors.transparent,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(50.0))),
+                  child: Center(
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 19.0,
+                        color: Color(0xFF03A696),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
