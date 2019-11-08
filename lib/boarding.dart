@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jdih_app/login.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -160,19 +160,25 @@ class _BoardingPageState extends State<BoardingPage> {
                   style: TextStyle(fontSize: 12.0, color: Colors.grey.shade400),
                 ),
                 SizedBox(height: 20.0),
-                Container(
-                  height: 35.0,
-                  width: 140.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Color(0xFF03A696)),
-                    borderRadius: BorderRadius.circular(50.0),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        fontSize: 19.0,
-                        color: Color(0xFF03A696),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                  child: Container(
+                    height: 35.0,
+                    width: 140.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Color(0xFF03A696)),
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 19.0,
+                          color: Color(0xFF03A696),
+                        ),
                       ),
                     ),
                   ),
