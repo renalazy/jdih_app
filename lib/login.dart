@@ -51,6 +51,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Container(
+            height: 50.0,
             margin: EdgeInsets.symmetric(horizontal: 40.0),
             child: TextFormField(
               decoration: InputDecoration(
@@ -72,10 +73,11 @@ class _LoginPageState extends State<LoginPage> {
           ),
           SizedBox(height: 10.0),
           Container(
+            height: 50.0,
             margin: EdgeInsets.symmetric(horizontal: 40.0),
             child: TextFormField(
               decoration: InputDecoration(
-                labelText: 'Username',
+                labelText: 'Password',
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25.0),
@@ -94,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
           SizedBox(height: 50.0),
           Center(
             child: Container(
-              height: 35.0,
+              height: 50.0,
               margin: EdgeInsets.symmetric(horizontal: 40.0),
               decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.white),
