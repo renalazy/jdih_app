@@ -56,8 +56,8 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
           Container(
             margin: EdgeInsets.only(left: 40.0),
             child: Text(
-              'Silahkan masukkan email anda pada kolom dibawah ini\n '
-              'untuk melakukan konfirmasi password yang dikirim\n ke email anda!',
+              'Silahkan masukkan email anda pada kolom dibawah ini\n'
+              'untuk melakukan konfirmasi password yang dikirim\nke email anda!',
               style: TextStyle(fontSize: 12.0),
             ),
           ),
