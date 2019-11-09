@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jdih_app/forget_password.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -128,11 +129,20 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(left: 5.0),
-                child: Text(
-                  'Konfirmasi Email',
-                  style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ForgetPasswordPage()));
+                },
+                child: Container(
+                  margin: EdgeInsets.only(left: 5.0),
+                  child: Text(
+                    'Konfirmasi Email',
+                    style:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ],
