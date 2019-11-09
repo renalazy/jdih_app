@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jdih_app/login.dart';
+import 'package:jdih_app/register.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -75,19 +76,27 @@ class _BoardingPageState extends State<BoardingPage> {
                       ),
                     ),
                     SizedBox(height: 10.0),
-                    Container(
-                      height: 35.0,
-                      width: 140.0,
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.white),
-                        borderRadius: BorderRadius.circular(50.0),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Registrasi',
-                          style: TextStyle(
-                            fontSize: 19.0,
-                            color: Colors.white,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegisterPage()));
+                      },
+                      child: Container(
+                        height: 35.0,
+                        width: 140.0,
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: Colors.white),
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Registrasi',
+                            style: TextStyle(
+                              fontSize: 19.0,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
