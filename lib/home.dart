@@ -170,23 +170,245 @@ class Terkini extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFf7f7f7),
+      // backgroundColor: Color(0xFFFf7f7f7),
+      // appBar: AppBar(
+      //     title: Text(
+      //   "Peraturan Terkini",
+      //   style: TextStyle(color: Colors.white),
+      // )),
+      // body: Container(
+      //   margin: EdgeInsets.all(10),
+      //   child: ListView(
+      //     children: <Widget>[
+      //       buildCard(Icons.access_alarm, "Peraturan 1"),
+      //       buildCard(Icons.access_alarm, "Peraturan 2"),
+      //       buildCard(Icons.access_alarm, "Peraturan 3"),
+      //       buildCard(Icons.access_alarm, "Peraturan 4"),
+      //       buildCard(Icons.access_alarm, "Peraturan 5"),
+      //       buildCard(Icons.access_alarm, "Peraturan 6")
+      //     ],
+      //   ),
+      // ),
       appBar: AppBar(
-          title: Text(
-        "Peraturan Terkini",
-        style: TextStyle(color: Colors.white),
-      )),
-      body: Container(
-        margin: EdgeInsets.all(10),
-        child: ListView(
-          children: <Widget>[
-            buildCard(Icons.access_alarm, "Peraturan 1"),
-            buildCard(Icons.access_alarm, "Peraturan 2"),
-            buildCard(Icons.access_alarm, "Peraturan 3"),
-            buildCard(Icons.access_alarm, "Peraturan 4"),
-            buildCard(Icons.access_alarm, "Peraturan 5"),
-            buildCard(Icons.access_alarm, "Peraturan 6")
-          ],
+        backgroundColor: Color(0xFFF038C7F),
+        title: Text("JDIH"),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Hi, Pengguna!",
+                  style: TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.w700),
+                ),
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Jdih Kab",
+                        style: TextStyle(
+                            color: Color(0xFFF038C7F),
+                            fontWeight: FontWeight.w700,
+                            fontSize: 35),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(8, 10, 0, 0),
+                    child: Text(
+                      "Probolinggo",
+                      style: TextStyle(color: Color(0xFFF038C7F), fontSize: 35),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                height: 50,
+                margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Flexible(
+                      child: TextField(
+                        decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            prefixIcon: Icon(Icons.search),
+                            hintText: "Search Peraturan...",
+                            hintStyle: TextStyle(height: 0.9),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.transparent),
+                                borderRadius: BorderRadius.circular(25.0)),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.transparent),
+                                borderRadius: BorderRadius.circular(25.0))),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 10),
+                      child: Icon(
+                        Icons.sort,
+                        color: Color(0xFFF315B8A),
+                        size: 40,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    FloatingActionButton(
+                      mini: true,
+                      backgroundColor: Color(0XFFFFE7568),
+                      elevation: 0,
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.cloud_done,
+                        color: Colors.white,
+                      ),
+                    ),
+                    FloatingActionButton(
+                      mini: true,
+                      backgroundColor: Color(0xFFFC85B6C),
+                      elevation: 0,
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.security,
+                        color: Colors.white,
+                      ),
+                    ),
+                    FloatingActionButton(
+                      mini: true,
+                      backgroundColor: Color(0xFFFFCCA6C),
+                      elevation: 0,
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.adb,
+                        color: Colors.white,
+                      ),
+                    ),
+                    FloatingActionButton(
+                      backgroundColor: Color(0xFFF548FCC),
+                      mini: true,
+                      elevation: 0,
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Perbup",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0xFFF707070)),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 4),
+                      child: Text(
+                        "Perda",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0xFFF707070)),
+                      ),
+                    ),
+                    Container(
+                      child: Text(
+                        "Integrasi",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0xFFF707070)),
+                      ),
+                    ),
+                    Container(
+                        margin: EdgeInsets.only(right: 3),
+                        child: Text(
+                          "Pusat",
+                          style: TextStyle(
+                              fontSize: 13, color: Color(0xFFF707070)),
+                        ))
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "Peraturan Populer",
+                      style: TextStyle(color: Color(0xFFF03A696), fontSize: 22),
+                    ),
+                    Text(
+                      "Show All",
+                      style: TextStyle(color: Color(0xFFF707070)),
+                    ),
+                  ],
+                ),
+              ),
+              Center(
+                child: Container(
+                  height: 200,
+                  margin: EdgeInsets.only(top: 10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: (AssetImage("images/foto.jpg")),
+                        fit: BoxFit.cover,
+                      )),
+                ),
+              ),
+              Container(
+                  margin: EdgeInsets.only(top: 10),
+                  child: Text(
+                    "PERBUP NO 24 TAHUN 2019 TENTANG ANALISIS DAMPAK LALU LINTAS",
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w700),
+                  )),
+              Row(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    child: Icon(
+                      Icons.star_half,
+                      color: Color(0xFFFF25116),
+                      size: 30,
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(4, 10, 0, 0),
+                    child: Text(
+                      "Disukai : 19000",
+                      style: TextStyle(fontSize: 16, color: Color(0xFFF707070)),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -203,7 +425,10 @@ class Terkini extends StatelessWidget {
               color: Colors.green,
             ),
           ),
-          Text(text, style: TextStyle(fontSize: 50),)
+          Text(
+            text,
+            style: TextStyle(fontSize: 50),
+          )
         ],
       ),
     );
@@ -215,6 +440,7 @@ class Tematik extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+         backgroundColor: Color(0xFFF038C7F),
           title: Text(
         "Tematik",
         style: TextStyle(color: Colors.white),

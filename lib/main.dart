@@ -17,7 +17,7 @@ class SplashApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        '/boarding': (BuildContext context) => BoardingPage(),
+        '/boarding': (BuildContext context) => Homepage(),
       },
       home: SplashScreen(),
     );

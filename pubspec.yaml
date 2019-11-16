@@ -45,6 +45,7 @@ flutter:
 
   assets:
     - images/
+    - images/foto.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

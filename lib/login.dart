@@ -131,10 +131,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ForgetPasswordPage()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => ForgetPasswordPage()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(left: 5.0),
