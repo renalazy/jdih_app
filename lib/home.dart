@@ -170,29 +170,13 @@ class Terkini extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color(0xFFFf7f7f7),
-      // appBar: AppBar(
-      //     title: Text(
-      //   "Peraturan Terkini",
-      //   style: TextStyle(color: Colors.white),
-      // )),
-      // body: Container(
-      //   margin: EdgeInsets.all(10),
-      //   child: ListView(
-      //     children: <Widget>[
-      //       buildCard(Icons.access_alarm, "Peraturan 1"),
-      //       buildCard(Icons.access_alarm, "Peraturan 2"),
-      //       buildCard(Icons.access_alarm, "Peraturan 3"),
-      //       buildCard(Icons.access_alarm, "Peraturan 4"),
-      //       buildCard(Icons.access_alarm, "Peraturan 5"),
-      //       buildCard(Icons.access_alarm, "Peraturan 6")
-      //     ],
-      //   ),
-      // ),
+      backgroundColor: Color(0xFFFf7f7f7),
       appBar: AppBar(
-        backgroundColor: Color(0xFFF038C7F),
-        title: Text("JDIH"),
-      ),
+          backgroundColor: Color(0xFFF038C7F),
+          title: Text(
+            "Peraturan Terkini",
+            style: TextStyle(color: Colors.white),
+          )),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
@@ -272,6 +256,7 @@ class Terkini extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     FloatingActionButton(
+                      heroTag: "btn1",
                       mini: true,
                       backgroundColor: Color(0XFFFFE7568),
                       elevation: 0,
@@ -282,6 +267,7 @@ class Terkini extends StatelessWidget {
                       ),
                     ),
                     FloatingActionButton(
+                      heroTag: "btn2",
                       mini: true,
                       backgroundColor: Color(0xFFFC85B6C),
                       elevation: 0,
@@ -293,6 +279,7 @@ class Terkini extends StatelessWidget {
                     ),
                     FloatingActionButton(
                       mini: true,
+                      heroTag: "btn3",
                       backgroundColor: Color(0xFFFFCCA6C),
                       elevation: 0,
                       onPressed: () {},
@@ -302,6 +289,7 @@ class Terkini extends StatelessWidget {
                       ),
                     ),
                     FloatingActionButton(
+                      heroTag: "btn4",
                       backgroundColor: Color(0xFFF548FCC),
                       mini: true,
                       elevation: 0,
@@ -413,26 +401,6 @@ class Terkini extends StatelessWidget {
       ),
     );
   }
-
-  Card buildCard(IconData iconData, String text) {
-    return Card(
-      child: Row(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(40),
-            child: Icon(
-              iconData,
-              color: Colors.green,
-            ),
-          ),
-          Text(
-            text,
-            style: TextStyle(fontSize: 50),
-          )
-        ],
-      ),
-    );
-  }
 }
 
 class Tematik extends StatelessWidget {
@@ -440,11 +408,11 @@ class Tematik extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         backgroundColor: Color(0xFFF038C7F),
+          backgroundColor: Color(0xFFF038C7F),
           title: Text(
-        "Tematik",
-        style: TextStyle(color: Colors.white),
-      )),
+            "Tematik",
+            style: TextStyle(color: Colors.white),
+          )),
       body: Center(
         child: Text('Tematik'),
       ),
