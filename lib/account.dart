@@ -50,7 +50,7 @@ class _AccountPageState extends State<AccountPage> {
             ),
             IconButton(
               icon: Icon(Icons.person),
-              color: Colors.black,
+              color: Color(0xFF03A696),
               onPressed: () {},
             ),
           ],
@@ -78,11 +78,14 @@ class _AccountPageState extends State<AccountPage> {
               ),
               title: Text(
                 'Rosihan Andin Pambudi',
-                style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 15.0,
+                    fontFamily: 'TitilliumWeb',
+                    fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
                 'me@rosihan.my.id',
-                style: TextStyle(fontSize: 12.0),
+                style: TextStyle(fontSize: 12.0, fontFamily: 'TitilliumWeb'),
               ),
             ),
           ),
@@ -95,6 +98,7 @@ class _AccountPageState extends State<AccountPage> {
                   style: TextStyle(
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'TitilliumWeb',
                       color: Colors.grey.shade600),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
@@ -109,6 +113,7 @@ class _AccountPageState extends State<AccountPage> {
                   style: TextStyle(
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'TitilliumWeb',
                       color: Colors.grey.shade600),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
@@ -123,6 +128,7 @@ class _AccountPageState extends State<AccountPage> {
                   style: TextStyle(
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'TitilliumWeb',
                       color: Colors.grey.shade600),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
@@ -137,6 +143,7 @@ class _AccountPageState extends State<AccountPage> {
                   style: TextStyle(
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'TitilliumWeb',
                       color: Colors.grey.shade600),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
@@ -151,6 +158,7 @@ class _AccountPageState extends State<AccountPage> {
                   style: TextStyle(
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'TitilliumWeb',
                       color: Colors.grey.shade600),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
