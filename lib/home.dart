@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jdih_app/list_peraturan.dart';
 import 'package:jdih_app/search.dart';
 import 'package:flutter/services.dart';
 
@@ -260,7 +261,12 @@ class Terkini extends StatelessWidget {
                       mini: true,
                       backgroundColor: Color(0XFFFFE7568),
                       elevation: 0,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ListPeraturan()));
+                      },
                       child: Icon(
                         Icons.cloud_done,
                         color: Colors.white,
