@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jdih_app/account.dart';
+import 'package:jdih_app/home.dart';
 import 'package:jdih_app/login.dart';
 import 'package:jdih_app/register.dart';
 
@@ -49,31 +51,17 @@ class _BoardingPageState extends State<BoardingPage> {
                   backgroundColor: Colors.blueGrey.shade900,
                   radius: 60.0,
                 ),
-                SizedBox(height: 50.0),
+                SizedBox(height: 20.0),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Daftarkan',
+                      'Daftarkan\nDiri Anda\nSekarang Juga',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 40.0,
-                          color: Colors.grey.shade400),
-                    ),
-                    Text(
-                      'Diri Anda',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 40.0,
-                          color: Colors.grey.shade400),
-                    ),
-                    Text(
-                      'Sekarang Juga',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40.0,
-                        color: Colors.grey.shade400,
-                      ),
+                          color: Colors.grey.shade400,
+                          fontFamily: 'TitilliumWeb'),
                     ),
                     SizedBox(height: 10.0),
                     GestureDetector(
@@ -94,9 +82,9 @@ class _BoardingPageState extends State<BoardingPage> {
                           child: Text(
                             'Registrasi',
                             style: TextStyle(
-                              fontSize: 19.0,
-                              color: Colors.white,
-                            ),
+                                fontSize: 19.0,
+                                color: Colors.white,
+                                fontFamily: 'TitilliumWeb'),
                           ),
                         ),
                       ),
@@ -124,40 +112,48 @@ class _BoardingPageState extends State<BoardingPage> {
                         title: Text(
                           'Facebook',
                           style: TextStyle(
-                            fontSize: 19.0,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF707070),
-                          ),
+                              fontSize: 19.0,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF707070),
+                              fontFamily: 'TitilliumWeb'),
                         ),
                       ),
                     ),
                     SizedBox(width: 10.0),
-                    Container(
-                      height: 55.0,
-                      width: 175.0,
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.white),
-                        borderRadius: BorderRadius.circular(50.0),
-                        color: Colors.white,
-                      ),
-                      child: Center(
-                        child: ListTile(
-                          leading: Image(
-                            image: AssetImage('images/google-logo.png'),
-                            width: 30.0,
-                            height: 30.0,
-                          ),
-                          title: Text(
-                            'Google',
-                            style: TextStyle(
-                              fontSize: 19.0,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF707070),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AccountPage()));
+                      },
+                      child: Container(
+                        height: 55.0,
+                        width: 175.0,
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: Colors.white),
+                          borderRadius: BorderRadius.circular(50.0),
+                          color: Colors.white,
+                        ),
+                        child: Center(
+                          child: ListTile(
+                            leading: Image(
+                              image: AssetImage('images/google-logo.png'),
+                              width: 30.0,
+                              height: 30.0,
+                            ),
+                            title: Text(
+                              'Google',
+                              style: TextStyle(
+                                  fontSize: 19.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF707070),
+                                  fontFamily: 'TitilliumWeb'),
                             ),
                           ),
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
                 SizedBox(height: 20.0),
@@ -166,7 +162,10 @@ class _BoardingPageState extends State<BoardingPage> {
                 SizedBox(height: 10.0),
                 Text(
                   'jika anda telah terdaftar silahkan login',
-                  style: TextStyle(fontSize: 12.0, color: Colors.grey.shade400),
+                  style: TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.grey.shade400,
+                      fontFamily: 'TitilliumWeb'),
                 ),
                 SizedBox(height: 20.0),
                 GestureDetector(
@@ -185,9 +184,9 @@ class _BoardingPageState extends State<BoardingPage> {
                       child: Text(
                         'Login',
                         style: TextStyle(
-                          fontSize: 19.0,
-                          color: Color(0xFF03A696),
-                        ),
+                            fontSize: 19.0,
+                            color: Color(0xFF03A696),
+                            fontFamily: 'TitilliumWeb'),
                       ),
                     ),
                   ),

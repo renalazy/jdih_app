@@ -30,7 +30,10 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
       title: Text(
         'JDIH',
         style: TextStyle(
-            fontSize: 31.0, fontWeight: FontWeight.bold, color: Colors.white),
+            fontSize: 31.0,
+            fontFamily: 'TitilliumWeb',
+            fontWeight: FontWeight.bold,
+            color: Colors.white),
       ),
       backgroundColor: Color(0xFF038C7F),
     );
@@ -45,6 +48,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
               'Lupa Password',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
+                fontFamily: 'TitilliumWeb',
                 fontSize: 31.0,
                 color: Color(0xFF038C7F),
               ),
@@ -58,7 +62,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
             child: Text(
               'Silahkan masukkan email anda pada kolom dibawah ini\n'
               'untuk melakukan konfirmasi password yang dikirim\nke email anda!',
-              style: TextStyle(fontSize: 12.0),
+              style: TextStyle(fontSize: 12.0, fontFamily: 'TitilliumWeb'),
             ),
           ),
           SizedBox(height: 100.0),
@@ -101,6 +105,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'TitilliumWeb',
                       color: Colors.white),
                 ),
               ),

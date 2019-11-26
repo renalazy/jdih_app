@@ -55,7 +55,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 31.0,
-                                color: Colors.white),
+                                color: Colors.white,
+                                fontFamily: 'TitilliumWeb'),
                           ),
                         ),
                         Container(
@@ -65,7 +66,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             style: TextStyle(
                                 fontSize: 19.0,
                                 color: Colors.white,
-                                fontWeight: FontWeight.w300),
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'TitilliumWeb'),
                           ),
                         ),
                       ],
@@ -81,10 +83,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: Text(
                           'Buat Akun \nAnda',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 31.0,
-                            color: Color(0xFF038C7F),
-                          ),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 31.0,
+                              color: Color(0xFF038C7F),
+                              fontFamily: 'TitilliumWeb'),
                         ),
                       ),
                       SizedBox(height: 30.0),
@@ -215,7 +217,8 @@ class _RegisterPageState extends State<RegisterPage> {
                               style: TextStyle(
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Colors.white,
+                                  fontFamily: 'TitilliumWeb'),
                             ),
                           ),
                         ),
@@ -228,8 +231,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             child: Text(
                               'sudah punya akun? silahkan ',
                               style: TextStyle(
-                                fontSize: 15.0,
-                              ),
+                                  fontSize: 15.0, fontFamily: 'TitilliumWeb'),
                             ),
                           ),
                           GestureDetector(
@@ -244,6 +246,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 'login',
                                 style: TextStyle(
                                     fontSize: 15.0,
+                                    fontFamily: 'TitilliumWeb',
                                     fontWeight: FontWeight.bold),
                               ),
                             ),

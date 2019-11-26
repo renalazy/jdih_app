@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jdih_app/forget_password.dart';
+import 'package:jdih_app/home.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -31,7 +32,10 @@ class _LoginPageState extends State<LoginPage> {
       title: Text(
         'JDIH',
         style: TextStyle(
-            fontSize: 31.0, fontWeight: FontWeight.bold, color: Colors.white),
+            fontSize: 31.0,
+            fontFamily: 'TitilliumWeb',
+            fontWeight: FontWeight.bold,
+            color: Colors.white),
       ),
       backgroundColor: Color(0xFF038C7F),
     );
@@ -47,6 +51,7 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 31.0,
+                fontFamily: 'TitilliumWeb',
                 color: Color(0xFF038C7F),
               ),
             ),
@@ -95,53 +100,60 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           SizedBox(height: 50.0),
-          Center(
-            child: Container(
-              height: 50.0,
-              margin: EdgeInsets.symmetric(horizontal: 40.0),
-              decoration: BoxDecoration(
-                border: Border.all(width: 1, color: Colors.white),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50.0),
-                    bottomRight: Radius.circular(50.0)),
-                color: Color(0xFF038C7F),
-              ),
-              child: Center(
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MyHomePage()));
+            },
+            child: Center(
+              child: Container(
+                height: 50.0,
+                margin: EdgeInsets.symmetric(horizontal: 40.0),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Colors.white),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50.0),
+                      bottomRight: Radius.circular(50.0)),
+                  color: Color(0xFF038C7F),
+                ),
+                child: Center(
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: 'TitilliumWeb',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
                 ),
               ),
             ),
           ),
-          SizedBox(height: 50.0),
+          SizedBox(height: 20.0),
           Row(
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(left: 40.0),
                 child: Text(
                   'Lupa password ? silahkan ',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                  ),
+                  style: TextStyle(fontSize: 12.0, fontFamily: 'TitilliumWeb'),
                 ),
               ),
               GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => ForgetPasswordPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ForgetPasswordPage()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(left: 5.0),
                   child: Text(
                     'Konfirmasi Email',
-                    style:
-                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'TitilliumWeb',
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

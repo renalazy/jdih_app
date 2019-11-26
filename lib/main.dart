@@ -17,7 +17,7 @@ class SplashApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        '/boarding': (BuildContext context) => Homepage(),
+        '/boarding': (BuildContext context) => BoardingPage(),
       },
       home: SplashScreen(),
     );
@@ -63,16 +63,16 @@ class _SplashScreenState extends State<SplashScreen> {
             Text(
               'JDIH Kabupaten',
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 31.0,
-              ),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 31.0,
+                  fontFamily: 'TitilliumWeb'),
             ),
             Text(
               'Probolinggo',
               style: TextStyle(
-                fontSize: 31.0,
-                color: Colors.grey,
-              ),
+                  fontSize: 31.0,
+                  color: Colors.grey,
+                  fontFamily: 'TitilliumWeb'),
             )
           ],
         ),
