@@ -69,6 +69,7 @@ class _DownloadsPageState extends State<DownloadsPage> {
                       backgroundColor: Color(0xFFC85B6C),
                       elevation: 0,
                       child: Icon(Icons.tv, color: Colors.white),
+                      onPressed: () {},
                     ),
                   ],
                 ),
@@ -226,6 +227,7 @@ class _DownloadsPageState extends State<DownloadsPage> {
                 mini: true,
                 backgroundColor: Color(0xFFFE7568),
                 child: Icon(Icons.bookmark, color: Colors.white, size: 30.0),
+                onPressed: () {},
               ),
               title: Text(
                 'Kunjungi Website JDIH',
@@ -260,6 +262,7 @@ class _DownloadsPageState extends State<DownloadsPage> {
                   Icons.message,
                   color: Colors.white,
                 ),
+                onPressed: () {},
               ),
               title: Text(
                 'Beri Review',
