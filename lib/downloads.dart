@@ -221,6 +221,7 @@ class _DownloadsPageState extends State<DownloadsPage> {
           child: Card(
             child: ListTile(
               leading: FloatingActionButton(
+                heroTag: "btn2",
                 elevation: 0,
                 mini: true,
                 backgroundColor: Color(0xFFFE7568),
@@ -251,6 +252,7 @@ class _DownloadsPageState extends State<DownloadsPage> {
           child: Card(
             child: ListTile(
               leading: FloatingActionButton(
+                heroTag: "btn1",
                 elevation: 0,
                 backgroundColor: Color(0xFF038C7F),
                 mini: true,
