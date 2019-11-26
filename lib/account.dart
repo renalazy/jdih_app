@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:jdih_app/tematik.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -46,7 +47,10 @@ class _AccountPageState extends State<AccountPage> {
             IconButton(
               icon: Icon(Icons.library_books),
               color: Colors.black,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TematikPage()));
+              },
             ),
             IconButton(
               icon: Icon(Icons.person),
