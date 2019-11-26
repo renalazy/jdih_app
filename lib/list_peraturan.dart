@@ -1,7 +1,12 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:jdih_app/Peraturan.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(new MyApp());
 
@@ -30,7 +35,7 @@ class ListPeraturan extends StatefulWidget {
 class _ListPeraturan extends State<ListPeraturan> {
   Future _getUsers() async {
     var data =
-        await http.get("http://jdih.probolinggokab.go.id/integrasi2.php");
+        await http.get("https://jdih.probolinggokab.go.id/integrasi2.php");
 
     var jsonData = json.decode(data.body);
     Peraturan peraturan = Peraturan.fromJson(jsonData);
@@ -105,6 +110,43 @@ class DetailPage extends StatelessWidget {
   final Perundangan perundangan;
 
   DetailPage(this.perundangan);
+
+  Future<File> getFileFromAsset(String asset) async {
+    try {
+      var data = await rootBundle.load(asset);
+      var bytes = data.buffer.asUint8List();
+      var dir = await getApplicationDocumentsDirectory();
+      File file = File("${dir.path}/mypdf.pdf");
+
+      File assetFile = await file.writeAsBytes(bytes);
+      return assetFile;
+    } catch (e) {
+      throw Exception("Error opening asset file");
+    }
+  }
+
+  Future<File> getFileFromUrl(String url) async {
+    try {
+      var data = await http.get(url);
+      var bytes = data.bodyBytes;
+      var dir = await getApplicationDocumentsDirectory();
+      File file = File("${dir.path}/mypdfonline.pdf");
+
+      File urlFile = await file.writeAsBytes(bytes);
+      return urlFile;
+    } catch (e) {
+      throw Exception("Error opening url file");
+    }
+  }
+
+  _launchURL() async {
+    String url = perundangan.urlDownload;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -254,47 +296,66 @@ class DetailPage extends StatelessWidget {
         ),
         SizedBox(height: 50.0),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Container(
-              height: 55.0,
-              width: 175.0,
-              decoration: BoxDecoration(
-                border: Border.all(width: 1, color: Colors.white),
-                borderRadius: BorderRadius.circular(50.0),
-                color: Color(0xFFFCCA6C),
-              ),
-              child: Center(
-                child: Text(
-                  'Lihat Peraturan',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    fontFamily: 'TitilliumWeb',
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: 50,
+              child: Container(
+                child: Material(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(100),
+                    splashColor: Colors.amber,
+                    onTap: () {
+                      _launchURL();
+                    },
+                    child: Center(
+                      child: Text(
+                        "Lhat Peraturan",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w700),
+                      ),
+                    ),
                   ),
                 ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    gradient: LinearGradient(
+                        colors: [Color(0xFFFFCCA6C), Color(0xFFFFCCA6C)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter)),
               ),
             ),
-            SizedBox(width: 10.0),
-            Container(
-              height: 55.0,
-              width: 175.0,
-              decoration: BoxDecoration(
-                border: Border.all(width: 1, color: Colors.white),
-                borderRadius: BorderRadius.circular(50.0),
-                color: Color(0xFF315B8A),
-              ),
-              child: Center(
-                child: Text(
-                  'Unduh Peraturan',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    fontFamily: 'TitilliumWeb',
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: 50,
+              child: Container(
+                child: Material(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(100),
+                    splashColor: Colors.blue,
+                    onTap: () {
+                      _launchURL();
+                    },
+                    child: Center(
+                      child: Text(
+                        "Unduh Peraturan",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w700),
+                      ),
+                    ),
                   ),
                 ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    gradient: LinearGradient(
+                        colors: [Color(0xFFF315B8A), Color(0xFFF315B8A)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter)),
               ),
             ),
           ],
@@ -371,3 +432,85 @@ class DetailPage extends StatelessWidget {
     )));
   }
 }
+
+// class PdfViewPage extends StatefulWidget {
+//   final String path;
+
+//   const PdfViewPage(Future<File> fileFromUrl, {Key key, this.path}) : super(key: key);
+//   @override
+//   _PdfViewPageState createState() => _PdfViewPageState();
+// }
+
+// class _PdfViewPageState extends State<PdfViewPage> {
+//   int _totalPages = 0;
+//   int _currentPage = 0;
+//   bool pdfReady = false;
+//   PDFViewController _pdfViewController;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("My Document"),
+//       ),
+//       body: Stack(
+//         children: <Widget>[
+//           PDFView(
+//             filePath: widget.path,
+//             autoSpacing: true,
+//             enableSwipe: true,
+//             pageSnap: true,
+//             swipeHorizontal: true,
+//             nightMode: false,
+//             onError: (e) {
+//               print(e);
+//             },
+//             onRender: (_pages) {
+//               setState(() {
+//                 _totalPages = _pages;
+//                 pdfReady = true;
+//               });
+//             },
+//             onViewCreated: (PDFViewController vc) {
+//               _pdfViewController = vc;
+//             },
+//             onPageChanged: (int page, int total) {
+//               setState(() {});
+//             },
+//             onPageError: (page, e) {},
+//           ),
+//           !pdfReady
+//               ? Center(
+//                   child: CircularProgressIndicator(),
+//                 )
+//               : Offstage()
+//         ],
+//       ),
+//       floatingActionButton: Row(
+//         mainAxisAlignment: MainAxisAlignment.end,
+//         children: <Widget>[
+//           _currentPage > 0
+//               ? FloatingActionButton.extended(
+//                   backgroundColor: Colors.red,
+//                   label: Text("Go to ${_currentPage - 1}"),
+//                   onPressed: () {
+//                     _currentPage -= 1;
+//                     _pdfViewController.setPage(_currentPage);
+//                   },
+//                 )
+//               : Offstage(),
+//           _currentPage + 1 < _totalPages
+//               ? FloatingActionButton.extended(
+//                   backgroundColor: Colors.green,
+//                   label: Text("Go to ${_currentPage + 1}"),
+//                   onPressed: () {
+//                     _currentPage += 1;
+//                     _pdfViewController.setPage(_currentPage);
+//                   },
+//                 )
+//               : Offstage(),
+//         ],
+//       ),
+//     );
+//   }
+// }
