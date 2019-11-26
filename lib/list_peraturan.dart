@@ -99,131 +99,266 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFF038C7F),
-        // title: Text(perundangan.noPeraturan.toString()),
-        title: Text("Detail Peraturan"),
-      ),
-      body: Stack(
-        children: <Widget>[
-          Container(
-              height: 200,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("images/foto.jpg"), fit: BoxFit.cover),
-              )),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              margin: EdgeInsets.fromLTRB(10, 220, 10, 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+        body: SingleChildScrollView(
+            child: Column(
+          children: <Widget>[
+            Container(
+              child: Stack(
                 children: <Widget>[
-                  Text(
-                    perundangan.singkatanJenis,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700, color: Color(0xFFFFE8377)),
+                  Container(
+                    child: Image(
+                      image: AssetImage('images/perda.jpg'),
+                      height: 265.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SafeArea(
+                    child: Container(
+                      margin: EdgeInsets.only(top: 20.0, left: 20.0),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  SafeArea(
+                    child: Container(
+                      margin: EdgeInsets.only(top: 20.0, right: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Icon(Icons.lock, color: Colors.white),
+                          SizedBox(width: 30.0),
+                          Icon(Icons.share, color: Colors.white)
+                        ],
+                      ),
+                    ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 10),
+                    margin: EdgeInsets.only(top: 200.0, right: 30.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        FloatingActionButton(
+                          backgroundColor: Color(0xFFC85B6C),
+                          elevation: 0,
+                          child: Icon(Icons.tv, color: Colors.white),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20.0),
+            Container(
+              margin: EdgeInsets.only(left: 30.0),
+              child: Column(
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      perundangan.jenis,
+                      style: TextStyle(
+                        fontFamily: 'TitilliumWeb',
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFE7568),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
                     child: Text(
                       perundangan.judul,
-                      style: TextStyle(fontWeight: FontWeight.w700),
+                      style: TextStyle(
+                        fontFamily: 'TitilliumWeb',
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Disukai: 19.000 Size: 21 Kib',
+                      style: TextStyle(
+                        fontFamily: 'TitilliumWeb',
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
                   Row(
                     children: <Widget>[
-                      Container(
-                          margin: EdgeInsets.only(top: 10),
-                          child: Text("Disukai : 19.000")),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(8, 10, 0, 0),
-                        child: Text("Size 20 Kib"),
+                      Icon(
+                        Icons.cloud_circle,
+                        color: Color(0xFF038C7F),
+                        size: 20.0,
+                      ),
+                      Icon(
+                        Icons.cloud_circle,
+                        color: Color(0xFF038C7F),
+                        size: 20.0,
+                      ),
+                      Icon(
+                        Icons.cloud_circle,
+                        color: Color(0xFF038C7F),
+                        size: 20.0,
+                      ),
+                      Icon(
+                        Icons.cloud_circle,
+                        color: Color(0xFF038C7F),
+                        size: 20.0,
+                      ),
+                      Icon(
+                        Icons.cloud_circle,
+                        color: Colors.grey,
+                        size: 20.0,
+                      ),
+                      SizedBox(width: 5.0),
+                      Text(
+                        '190 review',
+                        style: TextStyle(
+                            fontSize: 12.0,
+                            fontFamily: 'TitilliumWeb',
+                            color: Colors.grey),
                       )
                     ],
-                  ),
-                  Container(
-                      margin: EdgeInsets.only(top: 20),
-                      height: 1.0,
-                      color: Colors.grey.shade400),
-                  Container(
-                    margin: EdgeInsets.only(top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.4,
-                          height: 55,
-                          child: Container(
-                            child: Material(
-                              borderRadius: BorderRadius.circular(100),
-                              color: Colors.transparent,
-                              child: InkWell(
-                                borderRadius: BorderRadius.circular(100),
-                                splashColor: Colors.blue,
-                                onTap: () {},
-                                child: Center(
-                                  child: Text(
-                                    "Lihat Peraturan",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xFFF315B8A),
-                                      Color(0xFFF315B8A)
-                                    ],
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter)),
-                          ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.4,
-                          height: 55,
-                          child: Container(
-                            child: Material(
-                              borderRadius: BorderRadius.circular(100),
-                              color: Colors.transparent,
-                              child: InkWell(
-                                borderRadius: BorderRadius.circular(100),
-                                splashColor: Colors.amber,
-                                onTap: () {},
-                                child: Center(
-                                  child: Text(
-                                    "Unduh Peraturan",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xFFFFCCA6C),
-                                      Color(0xFFFFCCA6C)
-                                    ],
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter)),
-                          ),
-                        )
-                      ],
-                    ),
                   )
                 ],
               ),
             ),
-          )
-        ],
-      ),
-    );
+            SizedBox(height: 20.0),
+            Transform.rotate(
+              angle: -3.14 / 30,
+              child: Divider(
+                color: Colors.black,
+                height: 2.0,
+                thickness: 1.0,
+              ),
+            ),
+            SizedBox(height: 50.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  height: 55.0,
+                  width: 175.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.white),
+                    borderRadius: BorderRadius.circular(50.0),
+                    color: Color(0xFFFCCA6C),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Lihat Peraturan',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'TitilliumWeb',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10.0),
+                Container(
+                  height: 55.0,
+                  width: 175.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.white),
+                    borderRadius: BorderRadius.circular(50.0),
+                    color: Color(0xFF315B8A),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Unduh Peraturan',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'TitilliumWeb',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20.0),
+            Container(
+              color: Colors.grey.shade200,
+              padding: EdgeInsets.symmetric(vertical: 2.5),
+              child: Card(
+                child: ListTile(
+                  leading: FloatingActionButton(
+                    heroTag: "btn2",
+                    elevation: 0,
+                    mini: true,
+                    backgroundColor: Color(0xFFFE7568),
+                    child:
+                        Icon(Icons.bookmark, color: Colors.white, size: 30.0),
+                    onPressed: () {},
+                  ),
+                  title: Text(
+                    'Kunjungi Website JDIH',
+                    style: TextStyle(
+                      fontFamily: 'TitilliumWeb',
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF038C7F),
+                    ),
+                  ),
+                  subtitle: Text(
+                    'jdih.probolinggo.go.id',
+                    style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'Titilliumweb',
+                        color: Colors.grey),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              color: Colors.grey.shade200,
+              padding: EdgeInsets.symmetric(vertical: 2.5),
+              child: Card(
+                child: ListTile(
+                  leading: FloatingActionButton(
+                    heroTag: "btn1",
+                    elevation: 0,
+                    backgroundColor: Color(0xFF038C7F),
+                    mini: true,
+                    child: Icon(
+                      Icons.message,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {},
+                  ),
+                  title: Text(
+                    'Beri Review',
+                    style: TextStyle(
+                      fontFamily: 'TitilliumWeb',
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF038C7F),
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Review anda mendukung pelayanan kami',
+                    style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'Titilliumweb',
+                        color: Colors.grey),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        )));
   }
 }
