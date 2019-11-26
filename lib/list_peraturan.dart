@@ -144,7 +144,7 @@ class DetailPage extends StatelessWidget {
                   ),
                   Container(
                       margin: EdgeInsets.only(top: 20),
-                      height: 0.5,
+                      height: 1.0,
                       color: Colors.grey.shade400),
                   Container(
                     margin: EdgeInsets.only(top: 20),
