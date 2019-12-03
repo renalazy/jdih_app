@@ -65,37 +65,41 @@ class _ListPeraturan extends State<ListPeraturan> {
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             print(snapshot.data);
             if (snapshot.data == null) {
-              return Container(child: Center(child: Text("Loading...")));
+              return new Center(child: new CircularProgressIndicator());
             } else {
               return ListView.builder(
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage: AssetImage("images/foto.jpg"),
+                  if (snapshot.data[index].singkatanJenis == "PERBUP") {
+                    return Card(
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          backgroundImage: AssetImage("images/foto.jpg"),
+                        ),
+                        title: Text(
+                          snapshot.data[index].judul,
+                          style: TextStyle(fontWeight: FontWeight.w700),
+                        ),
+                        subtitle: Container(
+                            margin: EdgeInsets.only(top: 5),
+                            child: Text(
+                              snapshot.data[index].jenis,
+                              style: TextStyle(
+                                  color: Color(0xFFFE7568),
+                                  fontWeight: FontWeight.w700),
+                            )),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (context) =>
+                                      DetailPage(snapshot.data[index])));
+                        },
                       ),
-                      title: Text(
-                        snapshot.data[index].judul,
-                        style: TextStyle(fontWeight: FontWeight.w700),
-                      ),
-                      subtitle: Container(
-                          margin: EdgeInsets.only(top: 5),
-                          child: Text(
-                            snapshot.data[index].jenis,
-                            style: TextStyle(
-                                color: Color(0xFFFE7568),
-                                fontWeight: FontWeight.w700),
-                          )),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            new MaterialPageRoute(
-                                builder: (context) =>
-                                    DetailPage(snapshot.data[index])));
-                      },
-                    ),
-                  );
+                    );
+                  } else {
+                    return new Container();
+                  }
                 },
               );
             }
