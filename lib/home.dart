@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jdih_app/list_peraturan.dart';
+import 'package:jdih_app/list_peraturan_perda.dart';
 import 'package:jdih_app/search.dart';
 import 'package:flutter/services.dart';
 
@@ -159,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue.shade800,
+        selectedItemColor: Color(0xFFF038C7F),
         onTap: _onItemTapped,
       ),
       body: pages.elementAt(_selectedIndex),
@@ -277,7 +278,12 @@ class Terkini extends StatelessWidget {
                       mini: true,
                       backgroundColor: Color(0xFFFC85B6C),
                       elevation: 0,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ListPeraturanPerda()));
+                      },
                       child: Icon(
                         Icons.security,
                         color: Colors.white,
@@ -288,7 +294,11 @@ class Terkini extends StatelessWidget {
                       heroTag: "btn3",
                       backgroundColor: Color(0xFFFFCCA6C),
                       elevation: 0,
-                      onPressed: () {},
+                      onPressed: () {
+                        Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text("Belum Ada Peraturan"),
+                        ));
+                      },
                       child: Icon(
                         Icons.adb,
                         color: Colors.white,
@@ -299,7 +309,11 @@ class Terkini extends StatelessWidget {
                       backgroundColor: Color(0xFFF548FCC),
                       mini: true,
                       elevation: 0,
-                      onPressed: () {},
+                      onPressed: () {
+                        Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text("Belum Ada Peraturan"),
+                        ));
+                      },
                       child: Icon(
                         Icons.add,
                         color: Colors.white,

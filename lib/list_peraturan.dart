@@ -57,7 +57,7 @@ class _ListPeraturan extends State<ListPeraturan> {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan"),
+        title: new Text("List Peraturan Perbup"),
       ),
       body: Container(
         child: FutureBuilder(
