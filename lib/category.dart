@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:timeline_list/timeline.dart';
+import 'package:timeline_list/timeline_model.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -25,6 +27,94 @@ class CategoryPage extends StatefulWidget {
 class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
+    List<TimelineModel> items = [
+      TimelineModel(
+          Container(
+            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                '2001',
+                style: TextStyle(
+                    fontSize: 15.0,
+                    fontFamily: 'TitilliumWeb',
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+          position: TimelineItemPosition.random,
+          iconBackground: Colors.grey,
+          icon: Icon(Icons.blur_circular)),
+      TimelineModel(
+          Container(
+            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                '2002',
+                style: TextStyle(
+                    fontSize: 15.0,
+                    fontFamily: 'TitilliumWeb',
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+          position: TimelineItemPosition.random,
+          iconBackground: Colors.grey,
+          icon: Icon(Icons.blur_circular)),
+      TimelineModel(
+          Container(
+            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                '2003',
+                style: TextStyle(
+                    fontSize: 15.0,
+                    fontFamily: 'TitilliumWeb',
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+          position: TimelineItemPosition.random,
+          iconBackground: Colors.grey,
+          icon: Icon(Icons.blur_circular)),
+      TimelineModel(
+          Container(
+            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                '2004',
+                style: TextStyle(
+                    fontSize: 15.0,
+                    fontFamily: 'TitilliumWeb',
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+          position: TimelineItemPosition.random,
+          iconBackground: Colors.grey,
+          icon: Icon(Icons.blur_circular)),
+      TimelineModel(
+          Container(
+            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                '2005',
+                style: TextStyle(
+                    fontSize: 15.0,
+                    fontFamily: 'TitilliumWeb',
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+          position: TimelineItemPosition.random,
+          iconBackground: Colors.grey,
+          icon: Icon(Icons.blur_circular)),
+    ];
+
     var bodyContent = Column(
       children: <Widget>[
         SafeArea(
@@ -165,19 +255,43 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ],
         ),
+        SizedBox(height: 20.0),
         Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              color: Color(0xFF315B8A)),
-          child: FlatButton(
-            child: Text(
-              'Beri Tanggapan',
-              style: TextStyle(
-                  fontSize: 15.0,
-                  fontFamily: 'TitilliumWeb',
-                  color: Colors.white),
+          color: Colors.grey.shade200,
+          height: 300,
+          width: double.infinity,
+          child: Container(
+            margin: EdgeInsets.only(left: 20.0),
+            child: Timeline(
+              children: items,
+              position: TimelinePosition.Left,
             ),
-            onPressed: () {},
+          ),
+        ),
+        SizedBox(height: 20.0),
+        Container(
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(right: 40.0),
+                width: 150.0,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Color(0xFF315B8A)),
+                child: FlatButton(
+                  child: Text(
+                    'Beri Tanggapan',
+                    style: TextStyle(
+                        fontSize: 15.0,
+                        fontFamily: 'TitilliumWeb',
+                        color: Colors.white),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+            ],
           ),
         )
       ],
