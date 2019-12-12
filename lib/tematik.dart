@@ -13,6 +13,7 @@ class TematikApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: TematikPage(),
     );
   }
@@ -28,49 +29,9 @@ class _TematikPageState extends State<TematikPage> {
   Widget build(BuildContext context) {
     final appbarContent = AppBar(
       title: Text(
-        'JDIH',
-        style: TextStyle(
-            fontSize: 31.0,
-            fontFamily: 'TitilliumWeb',
-            fontWeight: FontWeight.bold,
-            color: Colors.white),
+        'Tematik',
       ),
       backgroundColor: Color(0xFF038C7F),
-    );
-
-    final makeBottom = Container(
-      height: 55.0,
-      child: BottomAppBar(
-        color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.home),
-              color: Colors.black,
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.bookmark),
-              color: Colors.black,
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.library_books),
-              color: Color(0xFF03A696),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TematikPage()));
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.person),
-              color: Colors.black,
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
     );
 
     final bodyContent = SafeArea(
@@ -78,8 +39,8 @@ class _TematikPageState extends State<TematikPage> {
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => DownloadsPage()));
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => DownloadsPage()));
             },
             child: Container(
               child: Stack(
@@ -134,7 +95,6 @@ class _TematikPageState extends State<TematikPage> {
     return Scaffold(
       appBar: appbarContent,
       body: bodyContent,
-      bottomNavigationBar: makeBottom,
     );
   }
 }

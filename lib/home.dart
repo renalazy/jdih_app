@@ -3,6 +3,7 @@ import 'package:jdih_app/list_peraturan.dart';
 import 'package:jdih_app/list_peraturan_perda.dart';
 import 'package:jdih_app/search.dart';
 import 'package:flutter/services.dart';
+import 'package:jdih_app/tematik.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -35,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final pages = [Terkini(), Tematik(), Search()];
+  final pages = [Terkini(), TematikApp(), SearchPage()];
 
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
@@ -53,27 +54,18 @@ class _MyHomePageState extends State<MyHomePage> {
       'Index 2: Pencarian',
       style: optionStyle,
     ),
-    Text(
-      'Index 3: Bookmark',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 4: Bantuan',
-      style: optionStyle,
-    ),
+    // Text(
+    //   'Index 3: Bookmark',
+    //   style: optionStyle,
+    // ),
+    // Text(
+    //   'Index 4: Bantuan',
+    //   style: optionStyle,
+    // ),
   ];
 
   void _onItemTapped(int index) {
     setState(() {
-      switch (index) {
-        case 2:
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => SearchPage(),
-              ));
-          break;
-      }
       _selectedIndex = index;
     });
   }
@@ -443,6 +435,15 @@ class Tematik extends StatelessWidget {
 class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+        appBar: AppBar(
+            backgroundColor: Color(0xFFF038C7F),
+            title: Text(
+              "Search",
+              style: TextStyle(color: Colors.white),
+            )),
+        body: Center(
+          child: Text('Tematik'),
+        ));
   }
 }

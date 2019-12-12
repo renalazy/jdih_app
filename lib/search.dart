@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jdih_app/home.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: 'Search',
-    home: SearchPage(),
-  ));
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(SearchPage());
+  });
 }
 
 class SearchPage extends StatefulWidget {
@@ -52,7 +52,10 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search'),
+        title: Text(
+          'Pencarian',
+        ),
+        backgroundColor: Color(0xFF038C7F),
       ),
       body: Container(
         padding: EdgeInsets.all(20.0),
@@ -77,7 +80,7 @@ class _SearchPageState extends State<SearchPage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(23.0),
                 gradient: LinearGradient(
-                  colors: [Color(0xFF0099ff), Color(0xFFb3e0ff)],
+                  colors: [Color(0xFF038C7F), Color(0xFF038C7F)],
                   begin: Alignment.centerRight,
                   end: Alignment.centerLeft,
                 ),
