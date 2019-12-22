@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jdih_app/category_perbup.dart';
 import 'package:jdih_app/list_peraturan.dart';
 import 'package:jdih_app/list_peraturan_perda.dart';
 import 'package:jdih_app/search.dart';
@@ -36,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final pages = [Terkini(), TematikApp(), SearchPage()];
+  final pages = [Terkini(), TematikPage(), SearchPage()];
 
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
@@ -415,22 +416,6 @@ class Terkini extends StatelessWidget {
   }
 }
 
-class Tematik extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Color(0xFFF038C7F),
-          title: Text(
-            "Tematik",
-            style: TextStyle(color: Colors.white),
-          )),
-      body: Center(
-        child: Text('Tematik'),
-      ),
-    );
-  }
-}
 
 class Search extends StatelessWidget {
   @override

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jdih_app/category_perbup.dart';
+import 'package:jdih_app/category_perda.dart';
 import 'package:jdih_app/downloads.dart';
 
 void main() {
@@ -39,8 +41,10 @@ class _TematikPageState extends State<TematikPage> {
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => DownloadsPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CategoryPagePerda()));
             },
             child: Container(
               child: Stack(
@@ -67,25 +71,33 @@ class _TematikPageState extends State<TematikPage> {
           SizedBox(
             height: 20.0,
           ),
-          Container(
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  child: Image(
-                    image: AssetImage('images/perbup.png'),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CategoryPagePerbup()));
+            },
+            child: Container(
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    child: Image(
+                      image: AssetImage('images/perbup.png'),
+                    ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 155.0, left: 40.0),
-                  child: Text(
-                    'PERBUB',
-                    style: TextStyle(
-                        fontSize: 31.0,
-                        fontFamily: 'TitilliumWeb',
-                        color: Colors.white),
+                  Container(
+                    margin: EdgeInsets.only(top: 155.0, left: 40.0),
+                    child: Text(
+                      'PERBUB',
+                      style: TextStyle(
+                          fontSize: 31.0,
+                          fontFamily: 'TitilliumWeb',
+                          color: Colors.white),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           )
         ],

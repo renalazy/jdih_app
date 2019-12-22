@@ -15,6 +15,7 @@ class LoginApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login',
+    
       home: LoginPage(),
     );
   }
@@ -23,6 +24,7 @@ class LoginApp extends StatelessWidget {
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
+  
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -102,8 +104,10 @@ class _LoginPageState extends State<LoginPage> {
           SizedBox(height: 50.0),
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()));
+               Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) {
+              return Homepage();
+            }));
             },
             child: Center(
               child: Container(

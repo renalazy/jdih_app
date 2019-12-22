@@ -14,17 +14,17 @@ class CategoryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: CategoryPage(),
+      home: CategoryPagePerbup(),
     );
   }
 }
 
-class CategoryPage extends StatefulWidget {
+class CategoryPagePerbup extends StatefulWidget {
   @override
   _CategoryPageState createState() => _CategoryPageState();
 }
 
-class _CategoryPageState extends State<CategoryPage> {
+class _CategoryPageState extends State<CategoryPagePerbup> {
   @override
   Widget build(BuildContext context) {
     List<TimelineModel> items = [
@@ -34,7 +34,7 @@ class _CategoryPageState extends State<CategoryPage> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '2001',
+                '2013',
                 style: TextStyle(
                     fontSize: 15.0,
                     fontFamily: 'TitilliumWeb',
@@ -51,7 +51,7 @@ class _CategoryPageState extends State<CategoryPage> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '2002',
+                '2014',
                 style: TextStyle(
                     fontSize: 15.0,
                     fontFamily: 'TitilliumWeb',
@@ -68,7 +68,7 @@ class _CategoryPageState extends State<CategoryPage> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '2003',
+                '2015',
                 style: TextStyle(
                     fontSize: 15.0,
                     fontFamily: 'TitilliumWeb',
@@ -85,7 +85,7 @@ class _CategoryPageState extends State<CategoryPage> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '2004',
+                '2016',
                 style: TextStyle(
                     fontSize: 15.0,
                     fontFamily: 'TitilliumWeb',
@@ -102,7 +102,41 @@ class _CategoryPageState extends State<CategoryPage> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '2005',
+                '2017',
+                style: TextStyle(
+                    fontSize: 15.0,
+                    fontFamily: 'TitilliumWeb',
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+          position: TimelineItemPosition.random,
+          iconBackground: Colors.grey,
+          icon: Icon(Icons.blur_circular)),
+      TimelineModel(
+          Container(
+            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                '2018',
+                style: TextStyle(
+                    fontSize: 15.0,
+                    fontFamily: 'TitilliumWeb',
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+          position: TimelineItemPosition.random,
+          iconBackground: Colors.grey,
+          icon: Icon(Icons.blur_circular)),
+      TimelineModel(
+          Container(
+            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                '2019',
                 style: TextStyle(
                     fontSize: 15.0,
                     fontFamily: 'TitilliumWeb',
