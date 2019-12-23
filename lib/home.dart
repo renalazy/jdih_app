@@ -19,19 +19,15 @@ class Homepage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Home',
+      home: MyHomePage(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Home'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -40,30 +36,30 @@ class _MyHomePageState extends State<MyHomePage> {
   final pages = [Terkini(), TematikPage(), SearchPage()];
 
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Terkini',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Tematik',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Pencarian',
-      style: optionStyle,
-    ),
-    // Text(
-    //   'Index 3: Bookmark',
-    //   style: optionStyle,
-    // ),
-    // Text(
-    //   'Index 4: Bantuan',
-    //   style: optionStyle,
-    // ),
-  ];
+  // static const TextStyle optionStyle =
+  //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  // static const List<Widget> _widgetOptions = <Widget>[
+  //   Text(
+  //     'Index 0: Terkini',
+  //     style: optionStyle,
+  //   ),
+  //   Text(
+  //     'Index 1: Tematik',
+  //     style: optionStyle,
+  //   ),
+  //   Text(
+  //     'Index 2: Pencarian',
+  //     style: optionStyle,
+  //   ),
+  //   // Text(
+  //   //   'Index 3: Bookmark',
+  //   //   style: optionStyle,
+  //   // ),
+  //   // Text(
+  //   //   'Index 4: Bantuan',
+  //   //   style: optionStyle,
+  //   // ),
+  // ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -416,19 +412,18 @@ class Terkini extends StatelessWidget {
   }
 }
 
-
-class Search extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Color(0xFFF038C7F),
-            title: Text(
-              "Search",
-              style: TextStyle(color: Colors.white),
-            )),
-        body: Center(
-          child: Text('Tematik'),
-        ));
-  }
-}
+// class Search extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//             backgroundColor: Color(0xFFF038C7F),
+//             title: Text(
+//               "Search",
+//               style: TextStyle(color: Colors.white),
+//             )),
+//         body: Center(
+//           child: Text('Tematik'),
+//         ));
+//   }
+// }

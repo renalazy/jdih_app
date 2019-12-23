@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jdih_app/perbup_tahun.dart';
 import 'package:timeline_list/timeline.dart';
 import 'package:timeline_list/timeline_model.dart';
 
@@ -29,16 +30,22 @@ class _CategoryPageState extends State<CategoryPagePerbup> {
   Widget build(BuildContext context) {
     List<TimelineModel> items = [
       TimelineModel(
-          Container(
-            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                '2013',
-                style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'TitilliumWeb',
-                    fontWeight: FontWeight.w500),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => Perbup2013()));
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '2013',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'TitilliumWeb',
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),
@@ -46,16 +53,22 @@ class _CategoryPageState extends State<CategoryPagePerbup> {
           iconBackground: Colors.grey,
           icon: Icon(Icons.blur_circular)),
       TimelineModel(
-          Container(
-            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                '2014',
-                style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'TitilliumWeb',
-                    fontWeight: FontWeight.w500),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => Perbup2014()));
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '2014',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'TitilliumWeb',
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),
@@ -63,16 +76,22 @@ class _CategoryPageState extends State<CategoryPagePerbup> {
           iconBackground: Colors.grey,
           icon: Icon(Icons.blur_circular)),
       TimelineModel(
-          Container(
-            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                '2015',
-                style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'TitilliumWeb',
-                    fontWeight: FontWeight.w500),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => Perbup2015()));
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '2015',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'TitilliumWeb',
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),
@@ -80,16 +99,22 @@ class _CategoryPageState extends State<CategoryPagePerbup> {
           iconBackground: Colors.grey,
           icon: Icon(Icons.blur_circular)),
       TimelineModel(
-          Container(
-            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                '2016',
-                style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'TitilliumWeb',
-                    fontWeight: FontWeight.w500),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => Perbup2016()));
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '2016',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'TitilliumWeb',
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),
@@ -97,16 +122,22 @@ class _CategoryPageState extends State<CategoryPagePerbup> {
           iconBackground: Colors.grey,
           icon: Icon(Icons.blur_circular)),
       TimelineModel(
-          Container(
-            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                '2017',
-                style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'TitilliumWeb',
-                    fontWeight: FontWeight.w500),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => Perbup2017()));
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '2017',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'TitilliumWeb',
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),
@@ -114,16 +145,22 @@ class _CategoryPageState extends State<CategoryPagePerbup> {
           iconBackground: Colors.grey,
           icon: Icon(Icons.blur_circular)),
       TimelineModel(
-          Container(
-            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                '2018',
-                style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'TitilliumWeb',
-                    fontWeight: FontWeight.w500),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => Perbup2018()));
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '2018',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'TitilliumWeb',
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),
@@ -131,16 +168,22 @@ class _CategoryPageState extends State<CategoryPagePerbup> {
           iconBackground: Colors.grey,
           icon: Icon(Icons.blur_circular)),
       TimelineModel(
-          Container(
-            margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                '2019',
-                style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'TitilliumWeb',
-                    fontWeight: FontWeight.w500),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => Perbup2019()));
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 25.0, bottom: 25.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '2019',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'TitilliumWeb',
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),
@@ -156,10 +199,15 @@ class _CategoryPageState extends State<CategoryPagePerbup> {
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(top: 30.0, left: 40.0),
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
-                  size: 20.0,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                    size: 20.0,
+                  ),
                 ),
               ),
               Container(
@@ -322,7 +370,10 @@ class _CategoryPageState extends State<CategoryPagePerbup> {
                         fontFamily: 'TitilliumWeb',
                         color: Colors.white),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Perbup2014()));
+                  },
                 ),
               ),
             ],

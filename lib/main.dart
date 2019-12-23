@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jdih_app/boarding.dart';
 import 'dart:async';
-import 'package:jdih_app/home.dart';
 import 'package:flutter/services.dart';
 
 void main() {

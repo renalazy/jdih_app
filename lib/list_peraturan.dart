@@ -171,9 +171,14 @@ class DetailPage extends StatelessWidget {
               SafeArea(
                 child: Container(
                   margin: EdgeInsets.only(top: 20.0, left: 20.0),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
