@@ -16,6 +16,8 @@ class Peraturan {
 
     return new Peraturan(perundangan: perundangan);
   }
+
+  static Peraturan formJson(Map i) {}
 }
 
 class Perundangan {

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:url_launcher/url_launcher.dart';
+
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -14,39 +18,50 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  // final _formKey = GlobalKey<FormState>();
+  List<Posts> _list = [];
+  List<Posts> _search = [];
+  var loading = false;
+  Future fetchData() async {
+    setState(() {
+      loading = true;
+    });
+    _list.clear();
+    final response =
+        await http.get("http://jdih.probolinggokab.go.id/integrasi2.php");
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      setState(() {
+        for (Map i in data) {
+          _list.add(Posts.formJson(i));
+          loading = false;
+        }
+      });
+    }
+  }
 
-  // List<String> _bentuk = ['A', 'B', 'C'];
+  TextEditingController controller = new TextEditingController();
 
-  // int _selectedIndex = 2;
-  // static const TextStyle optionStyle =
-  //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  // static const List<Widget> _widgetOptions = <Widget>[
-  //   Text(
-  //     'Index 0: Home',
-  //     style: optionStyle,
-  //   ),
-  //   Text(
-  //     'Index 1: PUU',
-  //     style: optionStyle,
-  //   ),
-  //   Text(
-  //     'Index 2: Search',
-  //     style: optionStyle,
-  //   ),
-  // ];
+  onSearch(String text) async {
+    _search.clear();
+    if (text.isEmpty) {
+      setState(() {});
+      return;
+    }
 
-  // void _onItemTapped(int index) {
-  //   setState(() {
-  //     switch (index) {
-  //       case 0:
-  //         Navigator.pop(context);
-  //         break;
-  //       case 2:
-  //         break;
-  //     }
-  //   });
-  // }
+    _list.forEach((f) {
+      if (f.judul.toLowerCase().contains(text) ||
+          f.idData.toString().contains(text)) _search.add(f);
+    });
+
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,122 +73,465 @@ class _SearchPageState extends State<SearchPage> {
         backgroundColor: Color(0xFF038C7F),
       ),
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(10.0),
         child: Column(
           children: <Widget>[
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'input keyword',
-                hintStyle: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 15.0,
+            Theme(
+              data: Theme.of(context).copyWith(
+                primaryColor: Color(0xFF038C7F),
+                cursorColor: Color(0xFF038C7F),
+              ),
+              child: TextField(
+                controller: controller,
+                onChanged: onSearch,
+                decoration: InputDecoration(
+                  hintText: 'Input Keyword',
+                  hintStyle: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15.0,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Color(0xFF038C7F), width: 2.0),
+                      borderRadius: BorderRadius.circular(20.0)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0)),
+                  prefixIcon: Icon(Icons.search),
                 ),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0)),
-                prefixIcon: Icon(Icons.search),
               ),
             ),
-            SizedBox(height: 30.0),
-            Container(
-              height: 56.0,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(23.0),
-                gradient: LinearGradient(
-                  colors: [Color(0xFF038C7F), Color(0xFF038C7F)],
-                  begin: Alignment.centerRight,
-                  end: Alignment.centerLeft,
+            loading
+                ? Container(
+                    margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
+                    child: CircularProgressIndicator(),
+                  )
+                : Expanded(
+                    child: _search.length != 0 || controller.text.isNotEmpty
+                        ? ListView.builder(
+                            itemCount: _search.length,
+                            itemBuilder: (context, i) {
+                              final b = _search[i];
+                              return Container(
+                                margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                child: Card(
+                                  child: ListTile(
+                                    leading: CircleAvatar(
+                                      backgroundImage:
+                                          AssetImage("images/foto.jpg"),
+                                    ),
+                                    title: Text(
+                                      b.judul,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    subtitle: Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          b.jenis,
+                                          style: TextStyle(
+                                              color: Color(0xFFFE7568),
+                                              fontWeight: FontWeight.w700),
+                                        )),
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          new MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailPage2(_search[i])));
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
+                          )
+                        : ListView.builder(
+                            itemCount: _list.length,
+                            itemBuilder: (context, i) {
+                              final a = _list[i];
+                              return Container(
+                                margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                child: Card(
+                                  child: ListTile(
+                                    leading: CircleAvatar(
+                                      backgroundImage:
+                                          AssetImage("images/foto.jpg"),
+                                    ),
+                                    title: Text(
+                                      a.judul,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    subtitle: Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          a.jenis,
+                                          style: TextStyle(
+                                              color: Color(0xFFFE7568),
+                                              fontWeight: FontWeight.w700),
+                                        )),
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          new MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailPage2(_list[i])));
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                  ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Posts {
+  final int idData;
+  final int tahun_pengundangan;
+  final String tanggal_pengundangan;
+  final String jenis;
+  final int noPeraturan;
+  final String judul;
+  final String singkatanJenis;
+  final String bahasa;
+  final String teuBadan;
+  final String fileDownload;
+  final String urlDownload;
+
+  Posts(
+      {this.idData,
+      this.tahun_pengundangan,
+      this.tanggal_pengundangan,
+      this.jenis,
+      this.noPeraturan,
+      this.judul,
+      this.singkatanJenis,
+      this.bahasa,
+      this.teuBadan,
+      this.fileDownload,
+      this.urlDownload});
+
+  factory Posts.formJson(Map<String, dynamic> json) {
+    return new Posts(
+      idData: json['idData'],
+      tahun_pengundangan: json['tahun_pengundangan'],
+      tanggal_pengundangan: json['tanggal_pengundangan'],
+      jenis: json['jenis'],
+      noPeraturan: json['noPeraturan'],
+      judul: json['judul'],
+      singkatanJenis: json['singkatanJenis'],
+      bahasa: json['bahasa'],
+      teuBadan: json['teuBadan'],
+      fileDownload: json['fileDownload'],
+      urlDownload: json['urlDownload'],
+    );
+  }
+}
+
+class DetailPage2 extends StatelessWidget {
+  final Posts perundangan;
+
+  DetailPage2(this.perundangan);
+
+  _launchURL() async {
+    String url = perundangan.urlDownload;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SingleChildScrollView(
+            child: Column(
+      children: <Widget>[
+        Container(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                child: Image(
+                  image: AssetImage('images/perda.jpg'),
+                  height: 265.0,
+                  fit: BoxFit.cover,
                 ),
               ),
-              child: Center(
-                child: Text(
-                  'SEARCH',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
+              SafeArea(
+                child: Container(
+                  margin: EdgeInsets.only(top: 20.0, left: 20.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
+              ),
+              SafeArea(
+                child: Container(
+                  margin: EdgeInsets.only(top: 20.0, right: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Icon(Icons.lock, color: Colors.white),
+                      SizedBox(width: 30.0),
+                      Icon(Icons.share, color: Colors.white)
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 200.0, right: 30.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    FloatingActionButton(
+                      backgroundColor: Color(0xFFC85B6C),
+                      elevation: 0,
+                      child: Icon(Icons.tv, color: Colors.white),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 20.0),
+        Container(
+          margin: EdgeInsets.only(left: 30.0),
+          child: Column(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  perundangan.singkatanJenis,
+                  style: TextStyle(
+                    fontFamily: 'TitilliumWeb',
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFFE7568),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  perundangan.judul,
+                  style: TextStyle(
+                    fontFamily: 'TitilliumWeb',
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Disukai: 19.000 Size: 21 Kib',
+                  style: TextStyle(
+                    fontFamily: 'TitilliumWeb',
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.cloud_circle,
+                    color: Color(0xFF038C7F),
+                    size: 20.0,
+                  ),
+                  Icon(
+                    Icons.cloud_circle,
+                    color: Color(0xFF038C7F),
+                    size: 20.0,
+                  ),
+                  Icon(
+                    Icons.cloud_circle,
+                    color: Color(0xFF038C7F),
+                    size: 20.0,
+                  ),
+                  Icon(
+                    Icons.cloud_circle,
+                    color: Color(0xFF038C7F),
+                    size: 20.0,
+                  ),
+                  Icon(
+                    Icons.cloud_circle,
+                    color: Colors.grey,
+                    size: 20.0,
+                  ),
+                  SizedBox(width: 5.0),
+                  Text(
+                    '190 review',
+                    style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'TitilliumWeb',
+                        color: Colors.grey),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+        SizedBox(height: 20.0),
+        Transform.rotate(
+          angle: -3.14 / 30,
+          child: Divider(
+            color: Colors.black,
+            height: 2.0,
+            thickness: 1.0,
+          ),
+        ),
+        SizedBox(height: 50.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: 50,
+              child: Container(
+                child: Material(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(100),
+                    splashColor: Colors.amber,
+                    onTap: () {
+                      _launchURL();
+                    },
+                    child: Center(
+                      child: Text(
+                        "Lhat Peraturan",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    gradient: LinearGradient(
+                        colors: [Color(0xFFFFCCA6C), Color(0xFFFFCCA6C)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter)),
+              ),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: 50,
+              child: Container(
+                child: Material(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(100),
+                    splashColor: Colors.blue,
+                    onTap: () {
+                      _launchURL();
+                    },
+                    child: Center(
+                      child: Text(
+                        "Unduh Peraturan",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    gradient: LinearGradient(
+                        colors: [Color(0xFFF315B8A), Color(0xFFF315B8A)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter)),
               ),
             ),
           ],
         ),
-      ),
-      // drawer: Drawer(
-      //   child: ListView(
-      //     padding: EdgeInsets.zero,
-      //     children: <Widget>[
-      //       DrawerHeader(
-      //         child: Image.asset('images/jdih_logo.png'),
-      //         decoration: BoxDecoration(
-      //           color: Colors.blue,
-      //         ),
-      //       ),
-      //       ListTile(
-      //         title: Text(
-      //           'Terkini',
-      //         ),
-      //         leading: Icon(Icons.home),
-      //         onTap: () {
-      //           Navigator.pop(context);
-      //           _onItemTapped(0);
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text(
-      //           'Tematik',
-      //         ),
-      //         leading: Icon(Icons.library_books),
-      //         onTap: () {
-      //           _onItemTapped(1);
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text(
-      //           'Pencarian',
-      //         ),
-      //         leading: Icon(Icons.search),
-      //         onTap: () {
-      //           Navigator.pop(context);
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text(
-      //           'Bookmark',
-      //         ),
-      //         leading: Icon(Icons.bookmark),
-      //         onTap: () {
-      //           _onItemTapped(3);
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text('Bantuan'),
-      //         leading: Icon(Icons.question_answer),
-      //         onTap: () {
-      //           _onItemTapped(4);
-      //         },
-      //       ),
-      //     ],
-      //   ),
-      // ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home),
-      //       title: Text('Terkini'),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.library_books),
-      //       title: Text('Tematik'),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.search),
-      //       title: Text('Pencarian'),
-      //     ),
-      //   ],
-      //   currentIndex: _selectedIndex,
-      //   selectedItemColor: Colors.blue.shade800,
-      //   onTap: _onItemTapped,
-      // ),
-    );
+        SizedBox(height: 20.0),
+        Container(
+          color: Colors.grey.shade200,
+          padding: EdgeInsets.symmetric(vertical: 2.5),
+          child: Card(
+            child: ListTile(
+              leading: FloatingActionButton(
+                heroTag: "btn2",
+                elevation: 0,
+                mini: true,
+                backgroundColor: Color(0xFFFE7568),
+                child: Icon(Icons.bookmark, color: Colors.white, size: 30.0),
+                onPressed: () {},
+              ),
+              title: Text(
+                'Kunjungi Website JDIH',
+                style: TextStyle(
+                  fontFamily: 'TitilliumWeb',
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF038C7F),
+                ),
+              ),
+              subtitle: Text(
+                'jdih.probolinggo.go.id',
+                style: TextStyle(
+                    fontSize: 12.0,
+                    fontFamily: 'Titilliumweb',
+                    color: Colors.grey),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          color: Colors.grey.shade200,
+          padding: EdgeInsets.symmetric(vertical: 2.5),
+          child: Card(
+            child: ListTile(
+              leading: FloatingActionButton(
+                heroTag: "btn1",
+                elevation: 0,
+                backgroundColor: Color(0xFF038C7F),
+                mini: true,
+                child: Icon(
+                  Icons.message,
+                  color: Colors.white,
+                ),
+                onPressed: () {},
+              ),
+              title: Text(
+                'Beri Review',
+                style: TextStyle(
+                  fontFamily: 'TitilliumWeb',
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF038C7F),
+                ),
+              ),
+              subtitle: Text(
+                'Review anda mendukung pelayanan kami',
+                style: TextStyle(
+                    fontSize: 12.0,
+                    fontFamily: 'Titilliumweb',
+                    color: Colors.grey),
+              ),
+            ),
+          ),
+        ),
+      ],
+    )));
   }
 }
