@@ -56,7 +56,8 @@ class _BoardingPageState extends State<BoardingPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Daftarkan\nDiri Anda\nSekarang Juga',
+                      // 'Daftarkan\nDiri Anda\nSekarang Juga',
+                      'Selamat Datang\nDi JDIH\nKab Probolinggo',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 40.0,
@@ -64,31 +65,31 @@ class _BoardingPageState extends State<BoardingPage> {
                           fontFamily: 'TitilliumWeb'),
                     ),
                     SizedBox(height: 10.0),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RegisterPage()));
-                      },
-                      child: Container(
-                        height: 35.0,
-                        width: 140.0,
-                        decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Colors.white),
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Registrasi',
-                            style: TextStyle(
-                                fontSize: 19.0,
-                                color: Colors.white,
-                                fontFamily: 'TitilliumWeb'),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //             builder: (context) => RegisterPage()));
+                    //   },
+                    //   child: Container(
+                    //     height: 35.0,
+                    //     width: 140.0,
+                    //     decoration: BoxDecoration(
+                    //       border: Border.all(width: 1, color: Colors.white),
+                    //       borderRadius: BorderRadius.circular(50.0),
+                    //     ),
+                    //     child: Center(
+                    //       child: Text(
+                    //         'Registrasi',
+                    //         style: TextStyle(
+                    //             fontSize: 19.0,
+                    //             color: Colors.white,
+                    //             fontFamily: 'TitilliumWeb'),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
                 SizedBox(height: 75.0),
@@ -170,8 +171,12 @@ class _BoardingPageState extends State<BoardingPage> {
                 SizedBox(height: 20.0),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginPage()));
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => LoginPage()));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return LoginPage();
+                    }));
                   },
                   child: Container(
                     height: 35.0,

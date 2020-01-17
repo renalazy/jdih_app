@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:jdih_app/category_perbup.dart';
 import 'package:jdih_app/list_peraturan.dart';
 import 'package:jdih_app/list_peraturan_perda.dart';
+import 'package:jdih_app/login.dart';
+import 'package:jdih_app/profile.dart';
 import 'package:jdih_app/search.dart';
 import 'package:flutter/services.dart';
 import 'package:jdih_app/tematik.dart';
@@ -33,7 +35,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final pages = [Terkini(), TematikPage(), SearchPage()];
+  
+  final pages = [Terkini(), TematikPage(), SearchPage(), ProfilePage()];
 
   int _selectedIndex = 0;
   // static const TextStyle optionStyle =
@@ -147,10 +150,15 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.search),
             title: Text('Pencarian'),
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text('Profile'),
+          ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Color(0xFFF038C7F),
         onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
       ),
       body: pages.elementAt(_selectedIndex),
     );

@@ -19,7 +19,7 @@ class Perda2002 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -88,7 +88,7 @@ class Perda2003 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -157,7 +157,7 @@ class Perda2004 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -226,7 +226,7 @@ class Perda2005 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -295,7 +295,7 @@ class Perda2006 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -364,7 +364,7 @@ class Perda2007 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -433,7 +433,7 @@ class Perda2008 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -502,7 +502,7 @@ class Perda2009 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -571,7 +571,7 @@ class Perda2010 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -640,7 +640,7 @@ class Perda2011 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -709,7 +709,7 @@ class Perda2012 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -778,7 +778,7 @@ class Perda2013 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -847,7 +847,7 @@ class Perda2014 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -916,7 +916,7 @@ class Perda2015 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -985,7 +985,7 @@ class Perda2016 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -1054,7 +1054,7 @@ class Perda2017 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -1123,7 +1123,7 @@ class Perda2018 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -1192,7 +1192,7 @@ class Perda2019 extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Color(0xFFF038C7F),
-        title: new Text("List Peraturan Perbup"),
+        title: new Text("List Peraturan Perda"),
       ),
       body: Container(
         child: FutureBuilder(

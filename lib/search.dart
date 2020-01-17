@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'list_peraturan.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -232,10 +236,46 @@ class Posts {
   }
 }
 
-class DetailPage2 extends StatelessWidget {
+class DetailPage2 extends StatefulWidget {
   final Posts perundangan;
-
   DetailPage2(this.perundangan);
+
+  @override
+  _DetailPage2State createState() => _DetailPage2State(perundangan);
+}
+
+class _DetailPage2State extends State<DetailPage2> {
+  final Posts perundangan;
+  _DetailPage2State(this.perundangan);
+
+  String assetPDFPath = "";
+  String urlPDFPath = "";
+
+  @override
+  void initState() {
+    super.initState();
+
+    getFileFromUrl(perundangan.urlDownload).then((f) {
+      setState(() {
+        urlPDFPath = f.path;
+        print(urlPDFPath);
+      });
+    });
+  }
+
+  Future<File> getFileFromUrl(String url) async {
+    try {
+      var data = await http.get(url);
+      var bytes = data.bodyBytes;
+      var dir = await getApplicationDocumentsDirectory();
+      File file = File("${dir.path}/mypdfonline.pdf");
+
+      File urlFile = await file.writeAsBytes(bytes);
+      return urlFile;
+    } catch (e) {
+      throw Exception("Error opening url file");
+    }
+  }
 
   _launchURL() async {
     String url = perundangan.urlDownload;
@@ -412,7 +452,13 @@ class DetailPage2 extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                     splashColor: Colors.amber,
                     onTap: () {
-                      _launchURL();
+                      if (urlPDFPath != null) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    PdfViewPage(path: urlPDFPath)));
+                      }
                     },
                     child: Center(
                       child: Text(
@@ -535,3 +581,307 @@ class DetailPage2 extends StatelessWidget {
     )));
   }
 }
+
+// class DetailPage2 extends StatelessWidget {
+//   final Posts perundangan;
+
+//   DetailPage2(this.perundangan);
+
+//   _launchURL() async {
+//     String url = perundangan.urlDownload;
+//     if (await canLaunch(url)) {
+//       await launch(url);
+//     } else {
+//       throw 'Could not launch $url';
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         body: SingleChildScrollView(
+//             child: Column(
+//       children: <Widget>[
+//         Container(
+//           child: Stack(
+//             children: <Widget>[
+//               Container(
+//                 child: Image(
+//                   image: AssetImage('images/perda.jpg'),
+//                   height: 265.0,
+//                   fit: BoxFit.cover,
+//                 ),
+//               ),
+//               SafeArea(
+//                 child: Container(
+//                   margin: EdgeInsets.only(top: 20.0, left: 20.0),
+//                   child: GestureDetector(
+//                     onTap: () {
+//                       Navigator.pop(context);
+//                     },
+//                     child: Icon(
+//                       Icons.arrow_back_ios,
+//                       color: Colors.white,
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               SafeArea(
+//                 child: Container(
+//                   margin: EdgeInsets.only(top: 20.0, right: 20.0),
+//                   child: Row(
+//                     mainAxisAlignment: MainAxisAlignment.end,
+//                     children: <Widget>[
+//                       Icon(Icons.lock, color: Colors.white),
+//                       SizedBox(width: 30.0),
+//                       Icon(Icons.share, color: Colors.white)
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//               Container(
+//                 margin: EdgeInsets.only(top: 200.0, right: 30.0),
+//                 child: Row(
+//                   mainAxisAlignment: MainAxisAlignment.end,
+//                   children: <Widget>[
+//                     FloatingActionButton(
+//                       backgroundColor: Color(0xFFC85B6C),
+//                       elevation: 0,
+//                       child: Icon(Icons.tv, color: Colors.white),
+//                       onPressed: () {},
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//         SizedBox(height: 20.0),
+//         Container(
+//           margin: EdgeInsets.only(left: 30.0),
+//           child: Column(
+//             children: <Widget>[
+//               Align(
+//                 alignment: Alignment.centerLeft,
+//                 child: Text(
+//                   perundangan.singkatanJenis,
+//                   style: TextStyle(
+//                     fontFamily: 'TitilliumWeb',
+//                     fontSize: 12.0,
+//                     fontWeight: FontWeight.bold,
+//                     color: Color(0xFFFE7568),
+//                   ),
+//                 ),
+//               ),
+//               Align(
+//                 alignment: Alignment.centerLeft,
+//                 child: Text(
+//                   perundangan.judul,
+//                   style: TextStyle(
+//                     fontFamily: 'TitilliumWeb',
+//                     fontSize: 12.0,
+//                     fontWeight: FontWeight.bold,
+//                     color: Colors.black,
+//                   ),
+//                 ),
+//               ),
+//               SizedBox(height: 10.0),
+//               Align(
+//                 alignment: Alignment.centerLeft,
+//                 child: Text(
+//                   'Disukai: 19.000 Size: 21 Kib',
+//                   style: TextStyle(
+//                     fontFamily: 'TitilliumWeb',
+//                     fontSize: 12.0,
+//                     fontWeight: FontWeight.bold,
+//                     color: Colors.grey,
+//                   ),
+//                 ),
+//               ),
+//               Row(
+//                 children: <Widget>[
+//                   Icon(
+//                     Icons.cloud_circle,
+//                     color: Color(0xFF038C7F),
+//                     size: 20.0,
+//                   ),
+//                   Icon(
+//                     Icons.cloud_circle,
+//                     color: Color(0xFF038C7F),
+//                     size: 20.0,
+//                   ),
+//                   Icon(
+//                     Icons.cloud_circle,
+//                     color: Color(0xFF038C7F),
+//                     size: 20.0,
+//                   ),
+//                   Icon(
+//                     Icons.cloud_circle,
+//                     color: Color(0xFF038C7F),
+//                     size: 20.0,
+//                   ),
+//                   Icon(
+//                     Icons.cloud_circle,
+//                     color: Colors.grey,
+//                     size: 20.0,
+//                   ),
+//                   SizedBox(width: 5.0),
+//                   Text(
+//                     '190 review',
+//                     style: TextStyle(
+//                         fontSize: 12.0,
+//                         fontFamily: 'TitilliumWeb',
+//                         color: Colors.grey),
+//                   )
+//                 ],
+//               )
+//             ],
+//           ),
+//         ),
+//         SizedBox(height: 20.0),
+//         Transform.rotate(
+//           angle: -3.14 / 30,
+//           child: Divider(
+//             color: Colors.black,
+//             height: 2.0,
+//             thickness: 1.0,
+//           ),
+//         ),
+//         SizedBox(height: 50.0),
+//         Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//           children: <Widget>[
+//             SizedBox(
+//               width: MediaQuery.of(context).size.width * 0.4,
+//               height: 50,
+//               child: Container(
+//                 child: Material(
+//                   borderRadius: BorderRadius.circular(100),
+//                   color: Colors.transparent,
+//                   child: InkWell(
+//                     borderRadius: BorderRadius.circular(100),
+//                     splashColor: Colors.amber,
+//                     onTap: () {
+//                       _launchURL();
+//                     },
+//                     child: Center(
+//                       child: Text(
+//                         "Lhat Peraturan",
+//                         style: TextStyle(
+//                             color: Colors.white, fontWeight: FontWeight.w700),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(100),
+//                     gradient: LinearGradient(
+//                         colors: [Color(0xFFFFCCA6C), Color(0xFFFFCCA6C)],
+//                         begin: Alignment.topCenter,
+//                         end: Alignment.bottomCenter)),
+//               ),
+//             ),
+//             SizedBox(
+//               width: MediaQuery.of(context).size.width * 0.4,
+//               height: 50,
+//               child: Container(
+//                 child: Material(
+//                   borderRadius: BorderRadius.circular(100),
+//                   color: Colors.transparent,
+//                   child: InkWell(
+//                     borderRadius: BorderRadius.circular(100),
+//                     splashColor: Colors.blue,
+//                     onTap: () {
+//                       _launchURL();
+//                     },
+//                     child: Center(
+//                       child: Text(
+//                         "Unduh Peraturan",
+//                         style: TextStyle(
+//                             color: Colors.white, fontWeight: FontWeight.w700),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(100),
+//                     gradient: LinearGradient(
+//                         colors: [Color(0xFFF315B8A), Color(0xFFF315B8A)],
+//                         begin: Alignment.topCenter,
+//                         end: Alignment.bottomCenter)),
+//               ),
+//             ),
+//           ],
+//         ),
+//         SizedBox(height: 20.0),
+//         Container(
+//           color: Colors.grey.shade200,
+//           padding: EdgeInsets.symmetric(vertical: 2.5),
+//           child: Card(
+//             child: ListTile(
+//               leading: FloatingActionButton(
+//                 heroTag: "btn2",
+//                 elevation: 0,
+//                 mini: true,
+//                 backgroundColor: Color(0xFFFE7568),
+//                 child: Icon(Icons.bookmark, color: Colors.white, size: 30.0),
+//                 onPressed: () {},
+//               ),
+//               title: Text(
+//                 'Kunjungi Website JDIH',
+//                 style: TextStyle(
+//                   fontFamily: 'TitilliumWeb',
+//                   fontSize: 12.0,
+//                   fontWeight: FontWeight.bold,
+//                   color: Color(0xFF038C7F),
+//                 ),
+//               ),
+//               subtitle: Text(
+//                 'jdih.probolinggo.go.id',
+//                 style: TextStyle(
+//                     fontSize: 12.0,
+//                     fontFamily: 'Titilliumweb',
+//                     color: Colors.grey),
+//               ),
+//             ),
+//           ),
+//         ),
+//         Container(
+//           color: Colors.grey.shade200,
+//           padding: EdgeInsets.symmetric(vertical: 2.5),
+//           child: Card(
+//             child: ListTile(
+//               leading: FloatingActionButton(
+//                 heroTag: "btn1",
+//                 elevation: 0,
+//                 backgroundColor: Color(0xFF038C7F),
+//                 mini: true,
+//                 child: Icon(
+//                   Icons.message,
+//                   color: Colors.white,
+//                 ),
+//                 onPressed: () {},
+//               ),
+//               title: Text(
+//                 'Beri Review',
+//                 style: TextStyle(
+//                   fontFamily: 'TitilliumWeb',
+//                   fontSize: 12.0,
+//                   fontWeight: FontWeight.bold,
+//                   color: Color(0xFF038C7F),
+//                 ),
+//               ),
+//               subtitle: Text(
+//                 'Review anda mendukung pelayanan kami',
+//                 style: TextStyle(
+//                     fontSize: 12.0,
+//                     fontFamily: 'Titilliumweb',
+//                     color: Colors.grey),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ],
+//     )));
+//   }
+// }
