@@ -70,6 +70,13 @@ class _LoginPageState extends State<LoginPage> {
         _loginStatus = LoginStatus.signIn;
         savePref(value, emailAPI, usernameAPI);
       });
+      Fluttertoast.showToast(
+          msg: "Selamat Datang Di JDIH Kab Problinggo",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIos: 1,
+          textColor: Colors.black,
+          fontSize: 14.0);
       print(pesan);
     } else {
       setState(() {
