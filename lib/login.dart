@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
         _loginStatus = LoginStatus.notSignIn;
       });
       Fluttertoast.showToast(
-          msg: "username atau password salah",
+          msg: "Username Atau Password Salah",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           timeInSecForIos: 1,

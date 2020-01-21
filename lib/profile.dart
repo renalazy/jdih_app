@@ -81,12 +81,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     Opacity(
                       opacity: 0.7,
                       child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://www.toptal.com/designers/subtlepatterns/patterns/memphis-mini.png"),
-                                fit: BoxFit.cover)),
+                        // decoration: BoxDecoration(
+                        //     borderRadius: BorderRadius.circular(4),
+                        //     image: DecorationImage(
+                        //         image: NetworkImage(
+                        //             "https://www.toptal.com/designers/subtlepatterns/patterns/memphis-mini.png"),
+                        //         fit: BoxFit.cover)),
                       ),
                     ),
                     Container(
@@ -114,7 +114,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               maxLines: 2,
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Color(0xFFF038C7F), fontSize: 20),
+                                  color: Color(0xFFF038C7F), fontSize: 18),
                             ),
                             Container(
                               margin: EdgeInsets.fromLTRB(0, 20, 0, 15),
@@ -123,7 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 maxLines: 2,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    color: Color(0xFFF038C7F), fontSize: 20),
+                                    color: Color(0xFFF038C7F), fontSize: 18),
                               ),
                             ),
                             Container(

@@ -34,23 +34,9 @@ class Perda2002 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2002) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -58,6 +44,84 @@ class Perda2002 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -103,23 +167,9 @@ class Perda2003 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2003) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -127,6 +177,84 @@ class Perda2003 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -172,23 +300,9 @@ class Perda2004 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2004) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -196,6 +310,84 @@ class Perda2004 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -241,23 +433,9 @@ class Perda2005 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2005) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -265,6 +443,84 @@ class Perda2005 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -310,23 +566,9 @@ class Perda2006 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2006) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -334,6 +576,84 @@ class Perda2006 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -379,23 +699,9 @@ class Perda2007 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2007) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -403,6 +709,84 @@ class Perda2007 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -448,23 +832,9 @@ class Perda2008 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2008) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -472,6 +842,84 @@ class Perda2008 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -517,23 +965,9 @@ class Perda2009 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2009) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -541,6 +975,84 @@ class Perda2009 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -586,23 +1098,9 @@ class Perda2010 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2010) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -610,6 +1108,84 @@ class Perda2010 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -655,23 +1231,9 @@ class Perda2011 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2011) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -679,6 +1241,84 @@ class Perda2011 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -724,23 +1364,9 @@ class Perda2012 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2012) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -748,6 +1374,84 @@ class Perda2012 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -793,23 +1497,9 @@ class Perda2013 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2013) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -817,6 +1507,84 @@ class Perda2013 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -862,23 +1630,9 @@ class Perda2014 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2014) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -886,6 +1640,84 @@ class Perda2014 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -931,23 +1763,9 @@ class Perda2015 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2015) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -955,6 +1773,84 @@ class Perda2015 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -1000,23 +1896,9 @@ class Perda2016 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2016) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -1024,6 +1906,84 @@ class Perda2016 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -1069,23 +2029,9 @@ class Perda2017 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2017) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -1093,6 +2039,84 @@ class Perda2017 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -1138,23 +2162,9 @@ class Perda2018 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2018) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -1162,6 +2172,84 @@ class Perda2018 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
@@ -1207,23 +2295,9 @@ class Perda2019 extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA" &&
                       snapshot.data[index].tahun_pengundangan == 2019) {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -1231,6 +2305,84 @@ class Perda2019 extends StatelessWidget {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {

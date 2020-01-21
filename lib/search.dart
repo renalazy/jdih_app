@@ -1,12 +1,10 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
-
 import 'list_peraturan.dart';
 
 void main() {
@@ -77,7 +75,7 @@ class _SearchPageState extends State<SearchPage> {
         backgroundColor: Color(0xFF038C7F),
       ),
       body: Container(
-        padding: EdgeInsets.all(10.0),
+        margin: EdgeInsets.all(5),
         child: Column(
           children: <Widget>[
             Theme(
@@ -85,22 +83,25 @@ class _SearchPageState extends State<SearchPage> {
                 primaryColor: Color(0xFF038C7F),
                 cursorColor: Color(0xFF038C7F),
               ),
-              child: TextField(
-                controller: controller,
-                onChanged: onSearch,
-                decoration: InputDecoration(
-                  hintText: 'Input Keyword',
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 15.0,
+              child: Container(
+                margin: EdgeInsets.all(5),
+                child: TextField(
+                  controller: controller,
+                  onChanged: onSearch,
+                  decoration: InputDecoration(
+                    hintText: 'Input Keyword',
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 15.0,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color(0xFF038C7F), width: 2.0),
+                        borderRadius: BorderRadius.circular(20.0)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0)),
+                    prefixIcon: Icon(Icons.search),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Color(0xFF038C7F), width: 2.0),
-                      borderRadius: BorderRadius.circular(20.0)),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0)),
-                  prefixIcon: Icon(Icons.search),
                 ),
               ),
             ),
@@ -115,34 +116,142 @@ class _SearchPageState extends State<SearchPage> {
                             itemCount: _search.length,
                             itemBuilder: (context, i) {
                               final b = _search[i];
+                              // return Container(
+                              //   margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              //   child: Card(
+                              //     child: ListTile(
+                              //       leading: CircleAvatar(
+                              //         backgroundImage:
+                              //             AssetImage("images/foto.jpg"),
+                              //       ),
+                              //       title: Text(
+                              //         b.judul,
+                              //         style: TextStyle(
+                              //             fontWeight: FontWeight.w700),
+                              //       ),
+                              //       subtitle: Container(
+                              //           margin: EdgeInsets.only(top: 5),
+                              //           child: Text(
+                              //             b.jenis,
+                              //             style: TextStyle(
+                              //                 color: Color(0xFFFE7568),
+                              //                 fontWeight: FontWeight.w700),
+                              //           )),
+                              //       onTap: () {
+                              //         Navigator.push(
+                              //             context,
+                              //             new MaterialPageRoute(
+                              //                 builder: (context) =>
+                              //                     DetailPage2(_search[i])));
+                              //       },
+                              //     ),
+                              //   ),
+                              // );
                               return Container(
                                 margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                                child: Card(
-                                  child: ListTile(
-                                    leading: CircleAvatar(
-                                      backgroundImage:
-                                          AssetImage("images/foto.jpg"),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        new MaterialPageRoute(
+                                            builder: (context) =>
+                                                DetailPage2(_search[i])));
+                                  },
+                                  child: Card(
+                                    elevation: 2,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        SizedBox(
+                                          width: 100,
+                                          height: 100,
+                                          child: Container(
+                                            margin:
+                                                EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                            child: Card(
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4),
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    4),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    4)),
+                                                    image: DecorationImage(
+                                                      image: (AssetImage(
+                                                          "images/foto.jpg")),
+                                                      fit: BoxFit.cover,
+                                                    )),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Container(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.67,
+                                              margin: EdgeInsets.fromLTRB(
+                                                  7, 7, 7, 6),
+                                              child: Text(
+                                                b.judul,
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w900,
+                                                    fontFamily: 'TitilliumWeb'),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Row(
+                                                children: <Widget>[
+                                                  Container(
+                                                    margin: EdgeInsets.fromLTRB(
+                                                        7, 5, 3, 0),
+                                                    child: Icon(
+                                                      Icons.star_half,
+                                                      color: Color(0xFFFF25116),
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 190,
+                                                    margin: EdgeInsets.fromLTRB(
+                                                        1, 5.5, 0, 0),
+                                                    child: Text(
+                                                      "Disukai: 19.000 . Size: 21 Kib",
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                          fontFamily:
+                                                              'TitilliumWeb',
+                                                          fontSize: 14,
+                                                          color: Color(
+                                                              0xFFF707070)),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      ],
                                     ),
-                                    title: Text(
-                                      b.judul,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                    subtitle: Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        child: Text(
-                                          b.jenis,
-                                          style: TextStyle(
-                                              color: Color(0xFFFE7568),
-                                              fontWeight: FontWeight.w700),
-                                        )),
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DetailPage2(_search[i])));
-                                    },
                                   ),
                                 ),
                               );
@@ -152,34 +261,142 @@ class _SearchPageState extends State<SearchPage> {
                             itemCount: _list.length,
                             itemBuilder: (context, i) {
                               final a = _list[i];
+                              // return Container(
+                              //   margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              //   child: Card(
+                              //     child: ListTile(
+                              //       leading: CircleAvatar(
+                              //         backgroundImage:
+                              //             AssetImage("images/foto.jpg"),
+                              //       ),
+                              //       title: Text(
+                              //         a.judul,
+                              //         style: TextStyle(
+                              //             fontWeight: FontWeight.w700),
+                              //       ),
+                              //       subtitle: Container(
+                              //           margin: EdgeInsets.only(top: 5),
+                              //           child: Text(
+                              //             a.jenis,
+                              //             style: TextStyle(
+                              //                 color: Color(0xFFFE7568),
+                              //                 fontWeight: FontWeight.w700),
+                              //           )),
+                              //       onTap: () {
+                              //         Navigator.push(
+                              //             context,
+                              //             new MaterialPageRoute(
+                              //                 builder: (context) =>
+                              //                     DetailPage2(_list[i])));
+                              //       },
+                              //     ),
+                              //   ),
+                              // );
                               return Container(
                                 margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                                child: Card(
-                                  child: ListTile(
-                                    leading: CircleAvatar(
-                                      backgroundImage:
-                                          AssetImage("images/foto.jpg"),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        new MaterialPageRoute(
+                                            builder: (context) =>
+                                                DetailPage2(_list[i])));
+                                  },
+                                  child: Card(
+                                    elevation: 2,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        SizedBox(
+                                          width: 100,
+                                          height: 100,
+                                          child: Container(
+                                            margin:
+                                                EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                            child: Card(
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4),
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    4),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    4)),
+                                                    image: DecorationImage(
+                                                      image: (AssetImage(
+                                                          "images/foto.jpg")),
+                                                      fit: BoxFit.cover,
+                                                    )),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Container(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.67,
+                                              margin: EdgeInsets.fromLTRB(
+                                                  7, 7, 7, 6),
+                                              child: Text(
+                                                a.judul,
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w900,
+                                                    fontFamily: 'TitilliumWeb'),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Row(
+                                                children: <Widget>[
+                                                  Container(
+                                                    margin: EdgeInsets.fromLTRB(
+                                                        7, 5, 3, 0),
+                                                    child: Icon(
+                                                      Icons.star_half,
+                                                      color: Color(0xFFFF25116),
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 190,
+                                                    margin: EdgeInsets.fromLTRB(
+                                                        1, 5.5, 0, 0),
+                                                    child: Text(
+                                                      "Disukai: 19.000 . Size: 21 Kib",
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                          fontFamily:
+                                                              'TitilliumWeb',
+                                                          fontSize: 14,
+                                                          color: Color(
+                                                              0xFFF707070)),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      ],
                                     ),
-                                    title: Text(
-                                      a.judul,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                    subtitle: Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        child: Text(
-                                          a.jenis,
-                                          style: TextStyle(
-                                              color: Color(0xFFFE7568),
-                                              fontWeight: FontWeight.w700),
-                                        )),
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DetailPage2(_list[i])));
-                                    },
                                   ),
                                 ),
                               );

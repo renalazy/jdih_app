@@ -57,23 +57,9 @@ class _ListPeraturanPerda extends State<ListPeraturanPerda> {
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index) {
                   if (snapshot.data[index].singkatanJenis == "PERDA") {
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage("images/foto.jpg"),
-                        ),
-                        title: Text(
-                          snapshot.data[index].judul,
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        subtitle: Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text(
-                              snapshot.data[index].jenis,
-                              style: TextStyle(
-                                  color: Color(0xFFFE7568),
-                                  fontWeight: FontWeight.w700),
-                            )),
+                    return Container(
+                      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
@@ -81,6 +67,84 @@ class _ListPeraturanPerda extends State<ListPeraturanPerda> {
                                   builder: (context) =>
                                       DetailPage(snapshot.data[index])));
                         },
+                        child: Card(
+                          elevation: 2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+                                  child: Card(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4),
+                                              bottomLeft: Radius.circular(4),
+                                              bottomRight: Radius.circular(4)),
+                                          image: DecorationImage(
+                                            image:
+                                                (AssetImage("images/foto.jpg")),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.67,
+                                    margin: EdgeInsets.fromLTRB(7, 7, 7, 6),
+                                    child: Text(
+                                      snapshot.data[index].judul,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: 'TitilliumWeb'),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(7, 5, 3, 0),
+                                          child: Icon(
+                                            Icons.star_half,
+                                            color: Color(0xFFFF25116),
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 190,
+                                          margin:
+                                              EdgeInsets.fromLTRB(1, 5.5, 0, 0),
+                                          child: Text(
+                                            "Disukai: 19.000 . Size: 21 Kib",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'TitilliumWeb',
+                                                fontSize: 14,
+                                                color: Color(0xFFF707070)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {
