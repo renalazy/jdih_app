@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:jdih_app/Peraturan.dart';
 import 'package:http/http.dart' as http;
@@ -412,7 +414,15 @@ class _DetailPageState extends State<DetailPage> {
                     borderRadius: BorderRadius.circular(100),
                     splashColor: Colors.amber,
                     onTap: () {
-                      if (urlPDFPath != null) {
+                      if (urlPDFPath == "") {
+                        Fluttertoast.showToast(
+                            msg: "Coba beberapa detik lagi",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIos: 1,
+                            textColor: Colors.black,
+                            fontSize: 14.0);
+                      } else {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -422,7 +432,7 @@ class _DetailPageState extends State<DetailPage> {
                     },
                     child: Center(
                       child: Text(
-                        "Lhat Peraturan",
+                        "Lihat Peraturan",
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w700),
                       ),
@@ -624,6 +634,32 @@ class _PdfViewPageState extends State<PdfViewPage> {
     );
   }
 }
+
+// class Tes extends StatefulWidget {
+//   @override
+//   _TesState createState() => _TesState();
+// }
+
+// class _TesState extends State<Tes> {
+//   final Completer<WebViewController> _controller =
+//       Completer<WebViewController>();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("tes"),
+//       ),
+//       body: WebView(
+//         javascriptMode: JavascriptMode.unrestricted,
+//         initialUrl: "https://www.google.com",
+//         onWebViewCreated: (WebViewController webViewController){
+//           _controller.complete(webViewController);
+//         },
+//       ),
+//     );
+//   }
+// }
 
 // class DetailPage extends StatelessWidget {
 //   final Perundangan perundangan;

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'dart:convert';
@@ -669,7 +670,15 @@ class _DetailPage2State extends State<DetailPage2> {
                     borderRadius: BorderRadius.circular(100),
                     splashColor: Colors.amber,
                     onTap: () {
-                      if (urlPDFPath != null) {
+                      if (urlPDFPath == "") {
+                        Fluttertoast.showToast(
+                            msg: "Coba beberapa detik lagi",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIos: 1,
+                            textColor: Colors.black,
+                            fontSize: 14.0);
+                      } else {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
